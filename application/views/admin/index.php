@@ -87,7 +87,7 @@
 							                           操作
 							                        </li>
 							                        <li>
-							                            <a class="ajax-link" href="<?php echo site_url('admin/pannel_form/add');?>" target="main-content">
+							                            <a class="ajax-link" href="<?php echo site_url('admin/pannel_form/form_add');?>" target="main-content">
 							                                <i class="glyphicon glyphicon-plus"></i><span> 增加问卷</span>
 							                            </a>
 							                        </li>
