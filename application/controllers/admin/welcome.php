@@ -81,7 +81,7 @@ class Welcome extends CI_Controller {
          // 	);
 
 		// 加载首页
-		 $this->load->view('admin/header',$data);
+		 $this->load->view('admin/header');
 		 $this->load->view('admin/index');
 		 $this->load->view('admin/footer');
 	}
