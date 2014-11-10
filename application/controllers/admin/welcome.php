@@ -76,9 +76,9 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 
-         $data = array(
-         	'userinfo'=>$_SESSION['user'],
-         	);
+         // $data = array(
+         // 	'userinfo'=>$_SESSION['user'],
+         // 	);
 
 		// 加载首页
 		 $this->load->view('admin/header',$data);
