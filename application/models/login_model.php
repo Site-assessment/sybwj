@@ -50,3 +50,5 @@ function stu_login($post){
 	
 }
 
+
+}
