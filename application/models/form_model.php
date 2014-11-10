@@ -14,23 +14,46 @@ class form_model extends CI_Model{
 	 *  @abstract 保存问卷表单处理方法
 	 */
     
-	function save_form($data){
+	function insert($post){
+		//构造表单
        $data_form = array(
-           'name' => $data['name'],
-           'user_id'=> $data['user_id'],
-           'state'=>$data['state'],
+           'form_name' => $post['form_name'],
+              'user_id'=> $post['user_id'],
+                'state'=>$post['state'],
+             'username'=>$post['username'],
 
        	);
        //保存问卷，得到form_id
-       foreach ($data['ques'] as $ques_data) {
-       	# code...
-       	$data_ques = array();
+       $this->db->insert('form',$data_form);
+       $form_id = $this->db->insert_id();
+
+
+       foreach ($post['ques'] as $ques_data) {
+       	# 构造问题
+       	$data_ques = array(
+               'form_id'=>$form_id,
+             'ques_name'=>$ques_data['ques_name'],
+       		);
        	//保存问题，得到ques_id
-       	  foreach ($ques_data['opt'] as $opt_data) {
-       	  	# code...
-       	  	 $data_opt = array();
+        $this->db->insert('ques',$data_ques);
+        $ques_id = $this->db->insert_id();
+
+       	  foreach ($ques_data['opt'] as $key=>$opt_data) {
+       	  	# 构造选项
+       	  	 $data_opt = array(
+
+       	  	 	'ques_id'=>$ques_id,
+       	  	 	'content'=>$opt_data['content'],
+       	  	 	'is_answer'=>$opt_data['is_answer'],
+       	  	 	'location'=>$key,
+       	  	 	);
+       	  	 //保存选项
+       	  	 $this->db->insert('opt',$data_opt);
        	  }
        }
+
+
+       return true;
 
 	}
 
