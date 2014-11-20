@@ -1,8 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * @todo 重写控制器，is_auth()权限验证
+ * @todo 已经重写控制器，is_auth_teacher()权限验证
  */
-class pannel_form extends CI_Controller {
+class pannel_form extends MY_Controller {
 
 
     
@@ -18,7 +18,7 @@ class pannel_form extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
-	 *  @abstract 欢迎页面
+	 *  @abstract 后台初始化页面
 	 */
 	public function index()
 	{
@@ -35,16 +35,39 @@ class pannel_form extends CI_Controller {
 	 */
 	public function form_add(){
 
-		if (isset($_POST['user_id'])) {
+		if (isset($_POST['user_id'])) {//(js)
 			# 插入表单数据，json数据格式
 			$_post = $this->input->post(NULL,TRUE);
+
+			
 			//todo  model
 			$res = $this->form->insert($_post);
 
-			//操作成功跳转页面
-			echo "post request";
+			if ($res) {
+				# code...
+				    //操作成功返回成功
+					$data = array(
+
+						'errorcode' => 0,
+						'message'   => 'ok',
+
+							);
+			}esle{
+				    //若操作失败，则返回失败
+					$data = array(
+
+						'errorcode' => 1,
+						'message'   => 'error',
+
+							);
+			}
+
+            //返回结果（前端JS）
+			echo json_encode($data);
 		}else{
 
+
+            //get请求，加载新增测试页面
 			$data = array(
 				'userinfo'=>$_SESSION['user'],
 				  'title' => '新建测试',
@@ -82,13 +105,39 @@ class pannel_form extends CI_Controller {
 		// $this->load->view('admin/footer');
 	}
 
+
+    /**
+     *@abstract 表单详情页面  
+     *@link http://www.flappyant.com/sybwj/index.php/admin/pannel_form/form_info/(form_id)
+     */
+
+    public function form_info($form_id){
+
+        //获取该测试表单信息,
+    	$form_info = $this->form->get_form_info($form_id);
+
+    	if ($form_info) {
+    		# code...
+    		$data = array(
+    			'title'=>'测试详情',
+    	   '$form_info'=>$form_info,
+    			);
+
+    		$this->load->view('admin/header',$data);
+			$this->load->view('admin/form_info');
+    	}
+  
+
+
+    } 
+
     /**
      *@abstract 编辑表单页面  操作--更新表单(先插入，成功后，再删除)
      *@link http://www.flappyant.com/sybwj/index.php/admin/pannel_form/form_edit
      */
 	public function form_edit($form_id){
 
-		if (isset($_POST['user_id'])) {
+		if (isset($_POST['user_id'])) {//(js)
 
 			$_post = $this->input->post(NULL,TRUE);
 			//插入编辑过的表单,unset form_id;
@@ -96,20 +145,39 @@ class pannel_form extends CI_Controller {
 			if ($res) {
 				# 删除原表单
 				$this->form_delete($form_id);
-				//操作成功，跳转到测试列表
+				//操作成功，返回成功，跳转到测试列表（js跳转）
+					$data = array(
 
-			}
+						'errorcode' => 0,
+						'message'   => 'ok',
+
+							);				
+
+		        }else{
+				    //操作失败
+					$data = array(
+
+						'errorcode' => 0,
+						'message'   => 'ok',
+
+							);
+			    }
+
+
+		        echo json_encode($data);
+			
 
 
 
 
-		}else{
-            //获取要编辑的测试内容;todo model
-            $forminfo =  $this->form->get_form_info($form_id);
-            //todo 转换成json格式
+		}else{//get，加载编辑页面
+
+            //获取要编辑的测试内容;todo model(返回array（）格式forminfo)
+            $form_info =  $this->form->get_form_info($form_id);
+            //forminfo 转换成json格式
             $data = array(
             	'title'=>'编辑测试',
-             'forminfo'=>$forminfo,
+             'form_info'=>json_encode($form_info),
             	);
 			$this->load->view('admin/header',$data);
 			$this->load->view('admin/edit');
@@ -120,7 +188,8 @@ class pannel_form extends CI_Controller {
 	}
 
     /**
-     *@abstract 操作 --删除表单
+     * @link http://www.flappyant.com/sybwj/index.php/admin/pannel_form/form_delete
+     * @abstract 操作 --删除表单(js)
      */
 	public function form_delete($form_id){
         //删除测试问卷  todo model
@@ -128,7 +197,24 @@ class pannel_form extends CI_Controller {
 
 		if ($res) {
 			# 操作成功
+			$data = array(
+					'errorcode' => 0,
+					'message'   => 'ok',
+					// 'userinfo'  =>  $_SESSION['user'],
+					);
+				
+		}else{
+
+				$data = array(
+					'errorcode' => 1,
+					'message'   => 'error',
+					// 'userinfo'  =>  $_SESSION['user'],
+					);
+
 		}
+
+        //返回结果（json）
+		echo json_encode($data);
 
 	}
 }

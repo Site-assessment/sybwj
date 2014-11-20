@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Welcome extends MY_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -25,6 +25,27 @@ class Welcome extends CI_Controller {
 		$this->load->model('login_model','login');
 	}
 
+
+        
+	/**
+	 * @abstract 注册
+	 * @link http://www.flappyant.com/sybwj/index.php/admin/welcome/register
+	 */
+
+	function register(){
+		if (isset($_POST['username'])) {
+			# 获取注册数据
+			$post = $this->input->post(NULL,TRUE);
+			//var_dump($post);
+			$res = $this->login->register($post);
+			if ($res) {
+				 //返回注册成功页面
+			}
+		}else{
+			//加载注册页面
+		}
+	}
+     
 	/**
 	 * @abstract 教师端后台登陆
 	 * @link http://www.flappyant.com/sybwj/index.php/admin/welcome/boss_login
@@ -38,12 +59,35 @@ class Welcome extends CI_Controller {
 			$res = $this->login->boss_login($_post);
 			//若用户名存在
 			if ($res) {
-                 //跳转到后台首页
-			}else{
+                 //返回成功
+				$data = array(
+					'errorcode' => 0,
+					'message'   => 'ok',
+					'userinfo'  =>  $_SESSION['user'],
+					);
+				echo json_encode($data);
+
+			}elseif ($res == 'state_error') {
+				# code...
+				$data = array(
+					'errorcode' => 1,
+					'message'   => 'state_error',
+					// 'userinfo'  =>  $_SESSION['user'],
+					);
+				echo json_encode($data);
+			}elseif ($res == 'unexists'){
                 //重新输入密码
+                $data = array(
+					'errorcode' => 2,
+					'message'   => 'user unexists',
+					// 'userinfo'  =>  $_SESSION['user'],
+					);
+				echo json_encode($data);
+
+
 			}
 		}else{//登陆页面（get）
-
+               echo "登陆界面";
 
 		}
 
@@ -51,6 +95,39 @@ class Welcome extends CI_Controller {
 
 	/**
 	 * @abstract 学生端登陆（移动端）
+	 * @link http://www.flappyant.com/sybwj/index.php/admin/welcome/stu_login_mobile
+	 */
+	function stu_login_mobile(){
+        //提交表单（post）
+		if (isset($_POST['username'])) {
+			# code...
+			$_post  = $this->input->post(NULL,TRUE);
+			//判断state = 0;
+			$res = $this->login->stu_login($_post);
+			//若用户名存在
+			if ($res) {
+                 //返回成功（json格式）
+				$data = array(
+					'errorcode' => 0,
+					'message'   => 'ok',
+					'userinfo'  =>  $_SESSION['user'],
+					);
+				echo json_encode($data);
+			}else{
+                //返回失败（json格式）
+                $data = array(
+					'errorcode' => 2,
+					'message'   => 'user unexists',
+					// 'userinfo
+					);
+                echo json_encode($data);
+			}
+		}
+
+	}
+
+   /**
+	 * @abstract 学生端登陆（网页端）
 	 * @link http://www.flappyant.com/sybwj/index.php/admin/welcome/stu_login
 	 */
 	function stu_login(){
@@ -61,17 +138,37 @@ class Welcome extends CI_Controller {
 			//判断state = 0;
 			$res = $this->login->stu_login($_post);
 			//若用户名存在
-			if ($res) {
-                 //返回成功（json格式）
-			}else{
-                //返回失败（json格式）
+			if ($res) {//进入主界面
+                 
+			}else{//返回失败
+
 			}
+		}else{//学生端登陆界面
+
 		}
 
 	}
 
+
+	 /**
+     * @abstract 用户名名监测
+     * @param $username
+     * @link http://www.flappyant.com/sybwj/index.php/admin/welcome/check_user_name
+     * 例如  http://ijiayuan.com.cn/dashboard/hl_panel_users/check_shop_name/Debug%E6%95%99%E5%AD%A6%E8%A7%86%E9%A2%91
+     */
+    public function check_user_name($username){
+        $username = urldecode($username);
+
+        $return = array(
+            'errorCode' => 0,
+            'isExists' => $this->login->check_user_name($username)?TRUE:FALSE,
+        );
+
+        echo json_encode($return);
+    }
+
      /**
-      * @abstract 教师端后台PC
+      * @abstract 教师端后台PC界面
       */
 	public function index()
 	{

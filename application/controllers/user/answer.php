@@ -1,6 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class answer extends CI_Controller {
+/**
+ * @abstract 学生端答题处理类  
+ */
+class answer extends MY_Controller {
 
 	function __construct(){
 		parent::__construct();
