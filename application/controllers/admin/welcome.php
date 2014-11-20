@@ -89,8 +89,8 @@ class Welcome extends MY_Controller {
 		}else{//登陆页面（get）
 
 
-			
-               echo "登陆界面";
+
+               echo "登陆界面".site_url();
 
 		}
 
