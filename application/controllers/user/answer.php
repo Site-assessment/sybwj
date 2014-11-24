@@ -188,6 +188,10 @@ class answer extends MY_Controller {
 	 */
 	function answered_list(){
 
+        //获取该学生已答过的列表
+		$answerd_list = $this->answer->get_answered_list($_SESSION['user']['user_id']);
+
+
 	}
 
 
