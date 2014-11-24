@@ -73,9 +73,38 @@ class form_model extends CI_Model{
 
     /**
 	 *  @return array();
-	 *  @abstract 获取问卷表单详情处理方法  todo:封装数据
+	 *  @abstract 获取测试表单详情处理方法  todo:封装数据
 	 */
 	function get_form_info($form_id){
+        
+        //获取测试表单,构造前端所需数据格式
+        $form_ob = $this->db->get_where('form',array('form_id'=>$form_id))->row_array();
+       
+        
+        //获取该测试所有问题
+        $ques_list = $this->db->get_where('ques',array('form_id'=>$form_id))->result_array();
+
+        //构造问题数据
+        foreach ($ques_list as $key => $ques_ob) {
+            # code...
+            $ques_id = $ques_ob['ques_id'];
+            //获取该问题的所有选项
+            $opt_list = $this->db->get_where('opt',array('ques_id'=>$ques_id))->result_array();
+            
+            //构造选项数据
+            $ques_list[$key]['opt'] = $opt_list;
+        }
+
+        //构造测试表单数据,完整的数据
+        $form_ob['form']['form_name'] = $form_ob['form_name'];
+        $form_ob['form']['ques']      = $ques_list;
+
+
+        //返回测试表单详情
+        return $form_ob;
+
+
+
 
 
 
@@ -86,18 +115,58 @@ class form_model extends CI_Model{
 	 *  @return array();
 	 *  @abstract 获取问卷表单列表处理方法
 	 */
-    function get_form_list(){
+    function get_form_list($status,$user_id){
+
+        //封装条件
+        $where = array(
+            'user_id'=>$user_id
+            );
+        if ($status != '') {
+            
+            $where['status'] = $status;
+        }
+
+        //查询测试列表
+        $form_list = $this->db->get_where('form',$where)->result_array();
+        //返回结果
+        return $form_list;
+
+
     	
     }
 
     /**
 	 *  @return boolean
-	 *  @abstract 删除问卷表单处理方法
+	 *  @abstract 删除问卷表单处理方法 
 	 */
 	function delete_form($form_id){
 		
-	}
+        //删除form表
+        $this->db->delete('form',array('form_id'=>$form_id));
+        
+        //取出该form表的所有问题
+        $ques_list = $this->db->get_where('ques',array('form_id'=>$form_id))->result_array();
 
+        //删除opt表
+        foreach ($ques_list as $key => $ques_ob) {
+            # code...
+
+            $ques_id = $ques_ob['ques_id'];
+            //删除这个问题的所有选项内容
+            $this->db->delete('opt',array('ques_id'=>$ques_id));
+              
+
+        }
+
+        //删除ques表
+         $this->db->delete('ques',array('form_id'=>$form_id));
+
+
+         return true;
+
+
+
+	}
 
 
 

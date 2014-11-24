@@ -20,14 +20,14 @@ class pannel_form extends MY_Controller {
 	 * Index Page for this controller.
 	 *  @abstract 后台初始化页面
 	 */
-	public function index()
-	{
+	// public function index()
+	// {
 		
-		$this->load->view('admin/header');
-		$this->load->view('admin/info');
-		// $this->load->view('admin/footer');
-		// $this->load->view('welcome_message');
-	}
+	// 	$this->load->view('admin/header');
+	// 	$this->load->view('admin/info');
+	// 	// $this->load->view('admin/footer');
+	// 	// $this->load->view('welcome_message');
+	// }
 
 	/**
 	 * @abstract 新建表单页面   操作--提交表单数据
@@ -39,7 +39,7 @@ class pannel_form extends MY_Controller {
 			# 插入表单数据，json数据格式
 			$_post = $this->input->post(NULL,TRUE);
 
-			
+
 			//todo  model
 			$res = $this->form->insert($_post);
 
@@ -88,10 +88,10 @@ class pannel_form extends MY_Controller {
      *@link http://www.flappyant.com/sybwj/index.php/admin/pannel_form/form_list
      */
 
-	public function form_list($state = ''){
+	public function form_list($status = ''){
         
-        //获取测试列表,state = 0 未启用， 1 启用 ，‘’ 全部;todo model
-        $formlist = $this->form->get_form_list($state,$_SESSION['user_id']);
+        //获取测试列表,state = 0 未启用， 1 启用 ，‘’ 全部;
+        $formlist = $this->form->get_form_list($status,$_SESSION['user_id']);
 
         $data = array(
         	'title'=>'测试列表',

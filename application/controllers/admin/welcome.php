@@ -32,22 +32,22 @@ class Welcome extends MY_Controller {
 	 * @link http://www.flappyant.com/sybwj/index.php/admin/welcome/register
 	 */
 
-	function register(){
-		if (isset($_POST['username'])) {
-			# 获取注册数据
-			$post = $this->input->post(NULL,TRUE);
-			//var_dump($post);
-			$res = $this->login->register($post);
-			if ($res) {
-				 //返回注册成功页面
-			}
-		}else{
-			//加载注册页面
-		}
-	}
+	// function register(){
+	// 	if (isset($_POST['username'])) {
+	// 		# 获取注册数据
+	// 		$post = $this->input->post(NULL,TRUE);
+	// 		//var_dump($post);
+	// 		$res = $this->login->register($post);
+	// 		if ($res) {
+	// 			 //返回注册成功页面
+	// 		}
+	// 	}else{
+	// 		//加载注册页面
+	// 	}
+	// }
      
 	/**
-	 * @abstract 教师端后台登陆
+	 * @abstract 教师/学生端登陆
 	 * @link http://www.flappyant.com/sybwj/index.php/admin/welcome/boss_login
 	 */
 	function boss_login(){
@@ -129,28 +129,62 @@ class Welcome extends MY_Controller {
 
 	}
 
+
+
+	/**
+	 * @abstract 学生修改密码
+	 * @link http://www.flappyant.com/sybwj/index.php/admin/welcome/edit_user
+	 */
+
+	function edit_user(){
+        
+        if (isset($_POST['user_id'])) {
+
+        	//更新密码/真实姓名
+        	$post = $this->input->post(NULL,TRUE);
+
+        	$res = $this->login->edit_user($post);
+
+        	if ($res) {
+
+        		//修改密码和真实姓名成功,返回主页
+
+        	}else{
+        		
+        		//返回操作失败页面
+        	}
+
+        }else{
+
+        //加载修改密码界面
+
+        }
+
+	}
+
+
    /**
 	 * @abstract 学生端登陆（网页端）
 	 * @link http://www.flappyant.com/sybwj/index.php/admin/welcome/stu_login
 	 */
-	function stu_login(){
-        //提交表单（post）
-		if (isset($_POST['username'])) {
-			# code...
-			$_post  = $this->input->post(NULL,TRUE);
-			//判断state = 0;
-			$res = $this->login->stu_login($_post);
-			//若用户名存在
-			if ($res) {//进入主界面
+	// function stu_login(){
+ //        //提交表单（post）
+	// 	if (isset($_POST['username'])) {
+	// 		# code...
+	// 		$_post  = $this->input->post(NULL,TRUE);
+	// 		//判断state = 0;
+	// 		$res = $this->login->stu_login($_post);
+	// 		//若用户名存在
+	// 		if ($res) {//进入主界面
                  
-			}else{//返回失败
+	// 		}else{//返回失败
 
-			}
-		}else{//学生端登陆界面
+	// 		}
+	// 	}else{//学生端登陆界面
 
-		}
+	// 	}
 
-	}
+	// }
 
 
 	 /**
@@ -159,19 +193,19 @@ class Welcome extends MY_Controller {
      * @link http://www.flappyant.com/sybwj/index.php/admin/welcome/check_user_name
      * 例如  http://ijiayuan.com.cn/dashboard/hl_panel_users/check_shop_name/Debug%E6%95%99%E5%AD%A6%E8%A7%86%E9%A2%91
      */
-    public function check_user_name($username){
-        $username = urldecode($username);
+    // public function check_user_name($username){
+    //     $username = urldecode($username);
 
-        $return = array(
-            'errorCode' => 0,
-            'isExists' => $this->login->check_user_name($username)?TRUE:FALSE,
-        );
+    //     $return = array(
+    //         'errorCode' => 0,
+    //         'isExists' => $this->login->check_user_name($username)?TRUE:FALSE,
+    //     );
 
-        echo json_encode($return);
-    }
+    //     echo json_encode($return);
+    // }
 
      /**
-      * @abstract 教师端后台PC界面
+      * @abstract 教师端首页（PC）
       */
 	public function index()
 	{

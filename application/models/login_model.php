@@ -17,37 +17,56 @@ class login_model extends CI_Model{
 	 * @link http://www.flappyant.com/sybwj/index.php/admin/welcome/register
 	 */
 
-    function register($post){
+    // function register($post){
 
-         $res = $this->db->insert('user',$post);
+    //      $res = $this->db->insert('user',$post);
 
-         return true;
+    //      return true;
 
-    }
+    // }
 
 
    /**
 	 * @abstract 用户名监测是否重用
 	 */
 
-   function check_user_name($username){
+   // function check_user_name($username){
        
-        $res = $this->db->get_where('user',array('username'=>$username))->row_array();
+   //      $res = $this->db->get_where('user',array('username'=>$username))->row_array();
 
-        if ($res) {
-        	# code...
-        	return true;
-        }else{
-        	return false;
-        }
+   //      if ($res) {
+   //      	# code...
+   //      	return true;
+   //      }else{
+   //      	return false;
+   //      }
 
-   }
+   // }
+
+
+   /**
+	 * @abstract 学生修改密码
+	 *
+	 */
+
+	function edit_user($post){
+        //取出user_id
+		$user_id = $post['user_id'];
+		unset($post['user_id']);
+
+		$where = array(
+			'user_id'=>$user_id,
+			);
+		$this->db->where($where)->update('user',$post);
+		return true;
+	}
+
 
 
 
 
 	/**
-	 * @abstract 教师登陆
+	 * @abstract 教师/学生登陆
 	 */
 
 	function boss_login($post){
@@ -81,7 +100,7 @@ class login_model extends CI_Model{
 
 
 	/**
-	 * @abstract 学生登陆
+	 * @abstract 学生登陆(移动端)
 	 */
 
 	function stu_login($post){
