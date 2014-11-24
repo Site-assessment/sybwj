@@ -7,15 +7,19 @@
             /*开启Session*/
             @session_start();
             // 图片基础参数设置
-            // define('DIR_STATIC',base_url().'static/');
-            // define('DIR_IMG', base_url().'static/image/');
-            // define('DIR_IMGHL', base_url().'static/imagehl/');
-            // define('DIR_BT', base_url().'static/bootstrap/');
-            // define('DIR_AdminLTE', base_url().'static/AdminLTE/');
-            // define('DIR_VALID', base_url().'static/validator-0.7.3/');
-            // define('DIR_PLUGIN', base_url().'static/plugins/');
-            // define('DIR_CSS', base_url().'static/css/');
-            // define('DIR_JS', base_url().'static/js/');
+            define('DIR_ASSETS',site_url().'assets/');
+            define('DIR_IMG', site_url().'assets/img/');
+            define('DIR_FONTS', site_url().'assets/fonts/');
+            define('DIR_CSS', site_url().'assets/css/');
+            define('DIR_JS', site_url().'assets/js/');
+
+            //控制层路由参数定义
+            define('DIR_ADMIN',site_url().'admin/');
+            define('DIR_USER',site_url().'user/');
+            // define('DIR_PANEL_FORM',site_url().'admin/pannel_form');
+            // define('DIR_WELCOME',site_url().'admin/welcome');
+            // define('DIR_ANSWER',site_url().'user/answer');
+            // define('DIR_USER',site_url().'user/');
 
             // 字符编码
             header ( 'Content-Type: text/html; charset=UTF-8' );

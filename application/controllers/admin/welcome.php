@@ -48,7 +48,7 @@ class Welcome extends MY_Controller {
      
 	/**
 	 * @abstract 教师/学生端登陆
-	 * @link http://www.flappyant.com/sybwj/index.php/admin/welcome/boss_login
+	 * @link http://www.flappyant.com/sybwj/admin/welcome/boss_login
 	 */
 	function boss_login(){
 		//提交表单（post）
@@ -98,7 +98,7 @@ class Welcome extends MY_Controller {
 
 	/**
 	 * @abstract 学生端登陆（移动端）
-	 * @link http://www.flappyant.com/sybwj/index.php/admin/welcome/stu_login_mobile
+	 * @link http://www.flappyant.com/sybwj/admin/welcome/stu_login_mobile
 	 */
 	function stu_login_mobile(){
         //提交表单（post）
@@ -133,7 +133,7 @@ class Welcome extends MY_Controller {
 
 	/**
 	 * @abstract 学生修改密码
-	 * @link http://www.flappyant.com/sybwj/index.php/admin/welcome/edit_user
+	 * @link http://www.flappyant.com/sybwj/admin/welcome/edit_user
 	 */
 
 	function edit_user(){
@@ -206,6 +206,7 @@ class Welcome extends MY_Controller {
 
      /**
       * @abstract 教师端首页（PC）
+      * @link http://www.flappyant.com/sybwj/admin/welcome
       */
 	public function index()
 	{

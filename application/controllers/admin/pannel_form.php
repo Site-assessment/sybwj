@@ -31,7 +31,7 @@ class pannel_form extends MY_Controller {
 
 	/**
 	 * @abstract 新建表单页面   操作--提交表单数据
-	 * @link http://www.flappyant.com/sybwj/index.php/admin/pannel_form/form_add
+	 * @link http://www.flappyant.com/sybwj/admin/pannel_form/form_add
 	 */
 	public function form_add(){
 
@@ -85,7 +85,7 @@ class pannel_form extends MY_Controller {
 
     /**
      *@abstract 表单列表页面
-     *@link http://www.flappyant.com/sybwj/index.php/admin/pannel_form/form_list
+     *@link http://www.flappyant.com/sybwj/admin/pannel_form/form_list
      */
 
 	public function form_list($status = ''){
@@ -108,7 +108,7 @@ class pannel_form extends MY_Controller {
 
     /**
      *@abstract 表单详情页面  
-     *@link http://www.flappyant.com/sybwj/index.php/admin/pannel_form/form_info/(form_id)
+     *@link http://www.flappyant.com/sybwj/admin/pannel_form/form_info/(form_id)
      */
 
     public function form_info($form_id){
@@ -133,7 +133,7 @@ class pannel_form extends MY_Controller {
 
     /**
      *@abstract 编辑表单页面  操作--更新表单(先插入，成功后，再删除)
-     *@link http://www.flappyant.com/sybwj/index.php/admin/pannel_form/form_edit
+     *@link http://www.flappyant.com/sybwj/admin/pannel_form/form_edit
      */
 	public function form_edit($form_id){
 
@@ -188,7 +188,7 @@ class pannel_form extends MY_Controller {
 	}
 
     /**
-     * @link http://www.flappyant.com/sybwj/index.php/admin/pannel_form/form_delete
+     * @link http://www.flappyant.com/sybwj/admin/pannel_form/form_delete
      * @abstract 操作 --删除表单(js)
      */
 	public function form_delete($form_id){
