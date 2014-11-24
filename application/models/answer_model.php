@@ -71,6 +71,21 @@ class answer_model extends CI_Model{
 
 	}
 
+	/**
+	 * @abstract 获取学生已答过测试列表
+	 */
+	function get_answered_list($user_id){
+
+	}
+
+
+    /**
+	 * @abstract 获取学生已答过测试详情
+	 */
+	function get_answered_info($form_id,$user_id){
+		
+	}
+
 
 
 

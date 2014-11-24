@@ -17,6 +17,7 @@ class answer extends MY_Controller {
 
     /**
      * @abstract 学生端首页(PC)
+     * @link http://www.flappyant.com/sybwj/user/answer/index
      */
 	function index(){
 
@@ -34,6 +35,7 @@ class answer extends MY_Controller {
 
     /**
      * @abstract 老师启用的测试列表(PC)
+     * @link http://www.flappyant.com/sybwj/user/answer/test_list
      */
 	function test_list(){
          //获取测试列表,列表显示字段：测试名，出题人，出题时间。隐藏字段：form_id
@@ -55,6 +57,7 @@ class answer extends MY_Controller {
 
     /**
      * @abstract 老师启用的测试列表(mobile)--移动端接口
+     * @link http://www.flappyant.com/sybwj/user/answer/test_list_mobile/(?user_id)[GET]
      */
 	function test_list_mobile($user_id = 0){
          //获取测试列表,列表显示字段：测试名，出题人，出题时间。隐藏字段：form_id
@@ -79,9 +82,10 @@ class answer extends MY_Controller {
 
 
 	/**
-	 * @abstract 答题页面/保存答案(PC)
+	 * @abstract 答题页面/保存答案(PC)---API 
+	 * @link http://www.flappyant.com/sybwj/user/answer/answer_in/(?form_id[GET])
 	 */
-	function answer($form_id = 0){
+	function answer_in($form_id = 0){
 
 		if (isset($_POST['user_id'])) {
 
@@ -113,7 +117,7 @@ class answer extends MY_Controller {
 
 
 		}else{
-			//加载页面
+
 			//获取测试内容 array()
 			$test_content = $this->answer->get_test_content($form_id);
             
@@ -122,6 +126,8 @@ class answer extends MY_Controller {
 				'test_content'=>json_encode($test_content),
 				'userinfo'    =>$_SESSION['user'],
 				);
+
+			//加载页面
 
 		}
 
@@ -133,8 +139,9 @@ class answer extends MY_Controller {
 
 	/**
 	 * @abstract 答题页面/保存答案(mobile)--移动端接口
+	 * @link http://www.flappyant.com/sybwj/user/answer/answer_in_mobile/(?form_id[GET])
 	 */
-	function answer_mobile($form_id = 0,$user_id = 0){
+	function answer_in_mobile($form_id = 0){
 
 
 		if (isset($_POST['user_id'])) {
@@ -169,8 +176,8 @@ class answer extends MY_Controller {
 			$test_content = $this->answer->get_test_content($form_id);
 
 			$data = array(
-				'errorcode' => 0,
-	            'message'   => 'ok',
+				'errorcode'    => 0,
+	            'message'      => 'ok',
 
 	         	'test_content' => $test_content,
             );
@@ -184,12 +191,22 @@ class answer extends MY_Controller {
 	}
 
 	/**
-	 * @abstract 已答过测试列表(PC)[显示得分]
+	 * @abstract 已答过测试列表(PC)[显示得分] --API
+	 * @link http://www.flappyant.com/sybwj/user/answer/answered_list
 	 */
 	function answered_list(){
 
         //获取该学生已答过的列表
 		$answerd_list = $this->answer->get_answered_list($_SESSION['user']['user_id']);
+
+		$data = array(
+			'title'        => '已答过',
+			'answered_list'=> $answered_list,
+			'userinfo'     => $_SESSION['user'],
+			);
+
+		//加载页面
+
 
 
 	}
@@ -197,24 +214,66 @@ class answer extends MY_Controller {
 
 	/**
 	 * @abstract 已答过测试列表(mobile)--移动端接口[显示得分]
+	 * @link http://www.flappyant.com/sybwj/user/answer/answered_list_mobile/(?user_id[GET])
 	 */
-	function answered_list($user_id = 0){
+	function answered_list_mobile($user_id = 0){
+
+        //获取该学生已答过的列表
+		$answerd_list = $this->answer->get_answered_list($user_id);
+
+		$data = array(
+			// 'title'=>'已答过',
+			'errorcode'    => 0,
+			'message'      => 'ok',
+			'answered_list'=> $answered_list,
+			// 'userinfo'=>$_SESSION['user'],
+			);
+
+		//返回数据
+		echo json_encode($data);
 		
 	}
 
 
 	/**
-	 * @abstract 已答过测试详情(PC)[包括显示答案]
+	 * @abstract 已答过测试详情(PC)[包括显示答案]--API
+	 * @link http://www.flappyant.com/sybwj/user/answer/answered_info/(?form_id&&?user_id[GET])
 	 */
-	function answered_info($form_id = 0){
+	function answered_info($form_id = 0,$user_id = 0){
+        //获取测试内容
+		$test_content  = $this->answer->get_test_content($form_id);
+		//获取该学生测试所做的内容
+		$answered_info = $this->answer->get_answered_info($form_id,$user_id);
+
+		$data = array(
+			'title'=>'已答过详情',
+			'test_content' =>$test_content,
+			'answered_info'=>$answered_info,
+			);
 
 	}
 
 
 	/**
 	 * @abstract 已答过测试详情(mobile)--移动端接口[包括显示答案]
+	 * @link http://www.flappyant.com/sybwj/user/answer/answered_info_mobile/(?form_id&&?user_id[GET])
 	 */
-	function answered_info($form_id = 0,$user_id = 0){
+	function answered_info_mobile($form_id = 0,$user_id = 0){
+
+		//获取测试内容
+		$test_content  = $this->answer->get_test_content($form_id);
+		//获取该学生测试所做的内容
+		$answered_info = $this->answer->get_answered_info($form_id,$user_id);
+
+		$data = array(
+			// 'title'=>'已答过详情',
+			'errorcode'    => 0,
+			'message'      => 'ok',
+			'test_content' => $test_content,
+			'answered_info'=> $answered_info,
+			);
+
+		echo json_encode($data);
 		
 	}
 
