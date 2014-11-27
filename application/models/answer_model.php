@@ -15,7 +15,7 @@ class answer_model extends CI_Model{
 	function get_test_list(){
 
 		$where = array(
-			'status'=>1
+			'status'=>1,
 			);
         //取出测试列表
 		$test_list = $this->db->get_where('form',$where)->result_array();

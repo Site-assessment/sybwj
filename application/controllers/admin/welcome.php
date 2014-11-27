@@ -132,7 +132,7 @@ class Welcome extends MY_Controller {
 
 
 	/**
-	 * @abstract 学生修改密码
+	 * @abstract 学生/教师修改密码（PC）
 	 * @link http://www.flappyant.com/sybwj/admin/welcome/edit_user
 	 */
 
@@ -149,9 +149,12 @@ class Welcome extends MY_Controller {
 
         		//修改密码和真实姓名成功,返回主页
 
+
         	}else{
-        		
+        		        		
         		//返回操作失败页面
+
+
         	}
 
         }else{
@@ -161,6 +164,45 @@ class Welcome extends MY_Controller {
         }
 
 	}
+
+	/**
+	 * @abstract 学生修改密码（安卓端）
+	 * @link http://www.flappyant.com/sybwj/admin/welcome/edit_user_mobile
+	 */
+
+	function edit_user_mobile(){
+        
+        if (isset($_POST['user_id'])) {
+
+        	//更新密码/真实姓名
+        	$post = $this->input->post(NULL,TRUE);
+
+        	$res = $this->login->edit_user($post);
+
+        	if ($res) {
+
+        		//返回成功（json格式）
+				$data = array(
+					'errorcode' => 0,
+					'message'   => 'ok',
+					);
+				echo json_encode($data);
+
+        	}else{
+        		
+        		//返回失败（json格式）
+                $data = array(
+					'errorcode' => 1,
+					'message'   => 'failure',
+					// 'userinfo
+					);
+                echo json_encode($data);
+        	}
+
+        }
+
+	}
+
 
 
    /**

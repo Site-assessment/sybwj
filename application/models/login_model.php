@@ -54,11 +54,18 @@ class login_model extends CI_Model{
 		$user_id = $post['user_id'];
 		unset($post['user_id']);
 
-		$where = array(
+		if ($user_id) {
+			# code...
+			$where = array(
 			'user_id'=>$user_id,
 			);
-		$this->db->where($where)->update('user',$post);
-		return true;
+			$this->db->where($where)->update('user',$post);
+			return true;
+		}else{
+			return false;
+		}
+
+		
 	}
 
 
