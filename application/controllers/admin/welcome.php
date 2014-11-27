@@ -173,13 +173,20 @@ class Welcome extends MY_Controller {
 	function edit_user_mobile(){
 
 
+              $post = $this->input->post();
+              if ($post) {
+              	# code...
+              	echo $post;
+              }else{
+              	echo "get";
+              }
 
-    	       $data = array(
-					'errorcode' => '0',
-					'message'   => 'ok',
-					// 'userinfo
-					);
-               echo json_encode($data);
+    	//        $data = array(
+					// 'errorcode' => '0',
+					// 'message'   => 'ok',
+					// // 'userinfo
+					// );
+     //           echo json_encode($data);
 		  // $post = $this->input->post(NULL,TRUE);
         
      //    if ($post) {
