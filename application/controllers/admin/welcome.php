@@ -173,13 +173,7 @@ class Welcome extends MY_Controller {
 	function edit_user_mobile(){
 
 
-              $post = $this->input->post();
-              if ($post) {
-              	# code...
-              	echo $post;
-              }else{
-              	echo "get";
-              }
+              echo "get";
 
     	//        $data = array(
 					// 'errorcode' => '0',
