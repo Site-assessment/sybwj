@@ -173,6 +173,9 @@ class Welcome extends MY_Controller {
 	function edit_user_mobile(){
 
 
+
+              // $post = $this->input->post(NULL,TRUE);
+
               echo "get";
 
     	//        $data = array(
