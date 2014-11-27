@@ -172,16 +172,25 @@ class Welcome extends MY_Controller {
 
 	function edit_user_mobile(){
 
-		  $post = $this->input->post(NULL,TRUE);
-        
-        if ($post) {
 
+		
         	       $data = array(
 					'errorcode' => '0',
 					'message'   => 'ok',
 					// 'userinfo
 					);
                 echo json_encode($data);
+
+		  // $post = $this->input->post(NULL,TRUE);
+        
+     //    if ($post) {
+
+     //    	       $data = array(
+					// 'errorcode' => '0',
+					// 'message'   => 'ok',
+					// // 'userinfo
+					// );
+     //            echo json_encode($data);
 
         	//更新密码/真实姓名
     //     	$post = $this->input->post(NULL,TRUE);
@@ -209,15 +218,15 @@ class Welcome extends MY_Controller {
     //             echo json_encode($data);
     //     	}
 
-        }else{
-        	 $data = array(
-					'errorcode' => '1',
-					'message'   => 'failure',
-					// 'userinfo
-					);
-                echo json_encode($data);
-        	// echo "安卓端";
-        }
+     //    }else{
+     //    	 $data = array(
+					// 'errorcode' => '1',
+					// 'message'   => 'failure',
+					// // 'userinfo
+					// );
+     //            echo json_encode($data);
+     //    	// echo "安卓端";
+     //    }
 
 	}
 
