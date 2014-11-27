@@ -188,7 +188,7 @@ class Welcome extends MY_Controller {
         
         if ($post) {
 
-   echo $post;
+                 echo json_encode($post);
      //    	       $data = array(
 					// 'errorcode' => '0',
 					// 'message'   => 'ok',
