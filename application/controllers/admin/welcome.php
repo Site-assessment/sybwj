@@ -166,21 +166,20 @@ class Welcome extends MY_Controller {
 	}
 
 	/**
-	 * @abstract 学生修改密码（安卓端）
+	 * @abstract 学生修改密码（安卓端）【post】
 	 * @link http://www.flappyant.com/sybwj/admin/welcome/edit_user_mobile
 	 */
 
 	function edit_user_mobile(){
 
 
-		
-        	       $data = array(
+
+    	       $data = array(
 					'errorcode' => '0',
 					'message'   => 'ok',
 					// 'userinfo
 					);
-                echo json_encode($data);
-
+               echo json_encode($data);
 		  // $post = $this->input->post(NULL,TRUE);
         
      //    if ($post) {
