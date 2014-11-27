@@ -176,7 +176,7 @@ class Welcome extends MY_Controller {
 
               // $post = $this->input->post(NULL,TRUE);
 
-              echo "get";
+              // echo "get";
 
     	//        $data = array(
 					// 'errorcode' => '0',
@@ -184,10 +184,11 @@ class Welcome extends MY_Controller {
 					// // 'userinfo
 					// );
      //           echo json_encode($data);
-		  // $post = $this->input->post(NULL,TRUE);
+		  $post = $this->input->post(NULL,TRUE);
         
-     //    if ($post) {
+        if ($post) {
 
+   echo $post;
      //    	       $data = array(
 					// 'errorcode' => '0',
 					// 'message'   => 'ok',
@@ -221,15 +222,15 @@ class Welcome extends MY_Controller {
     //             echo json_encode($data);
     //     	}
 
-     //    }else{
-     //    	 $data = array(
-					// 'errorcode' => '1',
-					// 'message'   => 'failure',
-					// // 'userinfo
-					// );
-     //            echo json_encode($data);
-     //    	// echo "安卓端";
-     //    }
+        }else{
+        	 $data = array(
+					'errorcode' => '1',
+					'message'   => 'failure',
+					// 'userinfo
+					);
+                echo json_encode($data);
+        	// echo "安卓端";
+        }
 
 	}
 
