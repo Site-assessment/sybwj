@@ -176,6 +176,7 @@ class Welcome extends MY_Controller {
 
         	//更新密码/真实姓名
         	$post = $this->input->post(NULL,TRUE);
+        	$post = json_decode($post);
 
         	$res = $this->login->edit_user($post);
 
@@ -183,7 +184,7 @@ class Welcome extends MY_Controller {
 
         		//返回成功（json格式）
 				$data = array(
-					'errorcode' => 0,
+					'errorcode' => '0',
 					'message'   => 'ok',
 					);
 				echo json_encode($data);
@@ -192,7 +193,7 @@ class Welcome extends MY_Controller {
         		
         		//返回失败（json格式）
                 $data = array(
-					'errorcode' => 1,
+					'errorcode' => '1',
 					'message'   => 'failure',
 					// 'userinfo
 					);
