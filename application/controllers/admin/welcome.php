@@ -171,35 +171,52 @@ class Welcome extends MY_Controller {
 	 */
 
 	function edit_user_mobile(){
+
+		  $post = $this->input->post(NULL,TRUE);
         
-        if (isset($_POST['user_id'])) {
+        if ($post) {
 
-        	//更新密码/真实姓名
-        	$post = $this->input->post(NULL,TRUE);
-        	$post = json_decode($post);
-
-        	$res = $this->login->edit_user($post);
-
-        	if ($res) {
-
-        		//返回成功（json格式）
-				$data = array(
+        	       $data = array(
 					'errorcode' => '0',
 					'message'   => 'ok',
+					// 'userinfo
 					);
-				echo json_encode($data);
+                echo json_encode($data);
 
-        	}else{
+        	//更新密码/真实姓名
+    //     	$post = $this->input->post(NULL,TRUE);
+    //     	$post = json_decode($post);
+
+    //     	$res = $this->login->edit_user($post);
+
+    //     	if ($res) {
+
+    //     		//返回成功（json格式）
+				// $data = array(
+				// 	'errorcode' => '0',
+				// 	'message'   => 'ok',
+				// 	);
+				// echo json_encode($data);
+
+    //     	}else{
         		
-        		//返回失败（json格式）
-                $data = array(
+    //     		//返回失败（json格式）
+    //             $data = array(
+				// 	'errorcode' => '1',
+				// 	'message'   => 'failure',
+				// 	// 'userinfo
+				// 	);
+    //             echo json_encode($data);
+    //     	}
+
+        }else{
+        	 $data = array(
 					'errorcode' => '1',
 					'message'   => 'failure',
 					// 'userinfo
 					);
                 echo json_encode($data);
-        	}
-
+        	// echo "安卓端";
         }
 
 	}
