@@ -174,53 +174,36 @@ class Welcome extends MY_Controller {
 
 
 
-              // $post = $this->input->post(NULL,TRUE);
 
-              // echo "get";
-
-    	//        $data = array(
-					// 'errorcode' => '0',
-					// 'message'   => 'ok',
-					// // 'userinfo
-					// );
-     //           echo json_encode($data);
 		  $post = $this->input->post(NULL,TRUE);
         
         if ($post) {
 
-                 echo json_encode($post);
-     //    	       $data = array(
-					// 'errorcode' => '0',
-					// 'message'   => 'ok',
-					// // 'userinfo
-					// );
-     //            echo json_encode($data);
 
         	//更新密码/真实姓名
-    //     	$post = $this->input->post(NULL,TRUE);
-    //     	$post = json_decode($post);
 
-    //     	$res = $this->login->edit_user($post);
 
-    //     	if ($res) {
+        	$res = $this->login->edit_user($post);
 
-    //     		//返回成功（json格式）
-				// $data = array(
-				// 	'errorcode' => '0',
-				// 	'message'   => 'ok',
-				// 	);
-				// echo json_encode($data);
+        	if ($res) {
 
-    //     	}else{
+        		//返回成功（json格式）
+				$data = array(
+					'errorcode' => '0',
+					'message'   => 'ok',
+					);
+				echo json_encode($data);
+
+        	}else{
         		
-    //     		//返回失败（json格式）
-    //             $data = array(
-				// 	'errorcode' => '1',
-				// 	'message'   => 'failure',
-				// 	// 'userinfo
-				// 	);
-    //             echo json_encode($data);
-    //     	}
+        		//返回失败（json格式）
+                $data = array(
+					'errorcode' => '1',
+					'message'   => 'failure',
+					// 'userinfo
+					);
+                echo json_encode($data);
+        	}
 
         }else{
         	 $data = array(
