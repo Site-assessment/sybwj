@@ -18,54 +18,68 @@ class form_model extends CI_Model{
 
         // $post = json_decode($post);
 		//构造表单,todo   每层做操作验证是否成功
-       $data_form = array(
-           'form_name'  => $post['form']['form_name'],
-              'user_id' => $post['user_id'],
-                //'type' => $post['type'],
-             'username' => $post['username'],
+        if (isset($post['user_id']) && isset($post['username']) && isset($post['form']['username'])) {
 
-       	);
+        
 
-       //保存问卷，得到form_id
-       $this->db->insert('form',$data_form);
-       $form_id = $this->db->insert_id();
+            $form_name =  $post['form']['form_name'];
+            $user_id = $post['user_id'];
+            $username = $post['username'];
 
-       if ($form_id) {
-             # code...
-            foreach ($post['form']['ques'] as $ques_data) {
-            # 构造问题
-                $data_ques = array(
-                       'form_id'=>$form_id,
-                     'ques_name'=>$ques_data['ques_name'],
-                  );
-                //保存问题，得到ques_id
-                $this->db->insert('ques',$data_ques);
-                $ques_id = $this->db->insert_id();
+            $data_form = array(
+               'form_name'  => $form_name,
+                  'user_id' => $user_id,
+                    //'type' => $post['type'],
+                 'username' => $username,
 
-                    if ($ques_id) {
-                        # code...
-                            foreach ($ques_data['opt'] as $key=>$opt_data) {
-                            # 构造选项
-                             $data_opt = array(
+           	);
 
-                              'ques_id'  =>$ques_id,
-                              'content'  =>$opt_data['content'],
-                              'is_answer'=>$opt_data['is_answer'],
-                              'location' =>$key,
-                              );
-                             //保存选项
-                             $this->db->insert('opt',$data_opt);
-                          }
-                          return true;
-                    }
+           //保存问卷，得到form_id
+           $this->db->insert('form',$data_form);
+           $form_id = $this->db->insert_id();
+
+           if ($form_id) {
+                 # code...
+                foreach ($post['form']['ques'] as $ques_data) {
+                # 构造问题
+                    $data_ques = array(
+                           'form_id'=>$form_id,
+                         'ques_name'=>$ques_data['ques_name'],
+                      );
+                    //保存问题，得到ques_id
+                    $this->db->insert('ques',$data_ques);
+                    $ques_id = $this->db->insert_id();
+
+                        if ($ques_id) {
+                            # code...
+                                foreach ($ques_data['opt'] as $key=>$opt_data) {
+                                # 构造选项
+                                 $data_opt = array(
+
+                                  'ques_id'  =>$ques_id,
+                                  'content'  =>$opt_data['content'],
+                                  'is_answer'=>$opt_data['is_answer'],
+                                  'location' =>$key,
+                                  );
+                                 //保存选项
+                                 $this->db->insert('opt',$data_opt);
+                              }
+                              
+                        }
 
 
-               }
+                   }
 
-               
-       }else{
-            return false;
-       }
+                return true;
+
+                   
+           }else{
+                return false;
+           }
+
+      }else{
+        return false;
+      }
 
 
 
@@ -74,8 +88,7 @@ class form_model extends CI_Model{
 
 
        
-
-	}
+  }
 
  //    /**
 	//  *  @return boolean
