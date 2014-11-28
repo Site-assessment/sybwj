@@ -80,27 +80,33 @@ class login_model extends CI_Model{
 
          $state = $post['state'];
          unset($post['state']);
+         if ($state) {
+         	# code...
+	         $res  = $this->db->get_where('user',$post)->row_array();
+
+			 if ($res) {
+
+			 	 if ( $res['state'] == $state) {
+			 	 	# code...
+			 	 	# 注册用户信息
+			 	    $_SESSION['user'] = $res;
+			 	    return "ok";
+			 	 }else{
+			 	 	//用户存在，但是身份选择错误
+			 	    // unset($_SESSION['user']);
+			 	    return "state_error";
+			     }
+
+			 }else{
+
+				 	//不存在该用户
+			 	    // unset($_SESSION['user']);
+				 	return "unexists";
+
+			 }
+         }
 		 // $post = array_merge($post,array('state'=>1));
-		 $res  = $this->db->get_where('user',$post)->row_array();
-
-		 if ($res) {
-
-		 	 if ( $res['state'] == $state) {
-		 	 	# code...
-		 	 	# 注册用户信息
-		 	    $_SESSION['user'] = $res;
-		 	    return true;
-		 	 }else{
-		 	 	//用户存在，但是身份选择错误
-		 	    return "state_error";
-		     }
-
-		 }else{
-
-			 	//不存在该用户
-			 	return "unexists";
-
-		 }
+		 
 	     
 	}
 

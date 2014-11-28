@@ -58,7 +58,7 @@ class Welcome extends MY_Controller {
 			//判断state = 1
 			$res = $this->login->boss_login($_post);
 			//若用户名存在
-			if ($res) {
+			if ($res == 'ok') {
                  //返回成功
 				$data = array(
 					'errorcode' => 0,
