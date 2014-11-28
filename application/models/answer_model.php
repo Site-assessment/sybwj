@@ -33,7 +33,7 @@ class answer_model extends CI_Model{
 			'form_id'=>$form_id,
 			);
          //获取测试对象
-		 $form_ob = $this->db->get_where('form',$where)->row_arrary();
+		 $form_ob = $this->db->get_where('form',$where)->row_array();
 
 		 //获取问题列表
 		 $ques_list = $this->db->get_where('ques',$where)->result_array();
