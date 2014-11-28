@@ -16,7 +16,7 @@ class form_model extends CI_Model{
     
 	function insert($post){
 
-        $post = json_decode($post);
+        // $post = json_decode($post);
 		//构造表单,todo   每层做操作验证是否成功
        $data_form = array(
            'form_name'  => $post['form']['form_name'],
