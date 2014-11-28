@@ -64,22 +64,23 @@ class pannel_form extends MY_Controller {
 
             //返回结果（前端JS）
 			echo json_encode($data);
-			
-		}else{
-
-
-            //get请求，加载新增测试页面
-			$data = array(
-				'userinfo'=>$_SESSION['user'],
-				  'title' => '新建测试',
-				);
-			//加载新建测试页面
-			$this->load->view('admin/header',$data);
-			$this->load->view('admin/form_add');
-		    // $this->load->view('admin/footer');
-			
 
 		}
+		// else{
+
+
+  //           //get请求，加载新增测试页面
+		// 	$data = array(
+		// 		'userinfo'=>$_SESSION['user'],
+		// 		  'title' => '新建测试',
+		// 		);
+		// 	//加载新建测试页面
+		// 	$this->load->view('admin/header',$data);
+		// 	$this->load->view('admin/form_add');
+		//     // $this->load->view('admin/footer');
+			
+
+		// }
 
 
 	}
