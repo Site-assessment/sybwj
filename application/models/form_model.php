@@ -56,8 +56,7 @@ class form_model extends CI_Model{
                              //保存选项
                              $this->db->insert('opt',$data_opt);
                           }
-                    }else{
-                        return false;
+                          return true;
                     }
 
 
@@ -65,11 +64,13 @@ class form_model extends CI_Model{
 
                
        }else{
-        return false;
+            return false;
        }
 
 
-       return true;
+
+
+       
 
 
        
