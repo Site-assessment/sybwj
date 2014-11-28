@@ -66,7 +66,7 @@ class answer extends MY_Controller {
          $data = array(
             'errorcode' => 0,
             'message'   => 'ok',
-            'count'     => count($test_list);
+            'count'     => count($test_list),
           	// 'title'     => '测试列表',
          	'test_list' => $test_list,
 
@@ -226,7 +226,7 @@ class answer extends MY_Controller {
 			// 'title'=>'已答过',
 			'errorcode'    => 0,
 			'message'      => 'ok',
-			'count'        => count($answered_list);
+			'count'        => count($answered_list),
 			'answered_list'=> $answered_list,
 			// 'userinfo'=>$_SESSION['user'],
 			);
