@@ -139,9 +139,10 @@ class pannel_form extends MY_Controller {
      */
 	public function form_edit($form_id){
 
-		if (isset($_POST['user_id'])) {//(js)
+		$_post = $this->input->post(NULL,TRUE);
 
-			$_post = $this->input->post(NULL,TRUE);
+		if ($_post) {//(js)
+
 			//插入编辑过的表单,unset form_id;
 			$res = $this->form->insert($_post);
 			if ($res) {
@@ -172,20 +173,21 @@ class pannel_form extends MY_Controller {
 
 
 
-		}else{//get，加载编辑页面
-
-            //获取要编辑的测试内容;todo model(返回array（）格式forminfo)
-            $form_info =  $this->form->get_form_info($form_id);
-            //forminfo 转换成json格式
-            $data = array(
-            	'title'=>'编辑测试',
-             'form_info'=>json_encode($form_info),
-            	);
-			$this->load->view('admin/header',$data);
-			$this->load->view('admin/edit');
-		    // $this->load->view('admin/footer');
-
 		}
+		// else{//get，加载编辑页面
+
+  //           //获取要编辑的测试内容;todo model(返回array（）格式forminfo)
+  //           $form_info =  $this->form->get_form_info($form_id);
+  //           //forminfo 转换成json格式
+  //           $data = array(
+  //           	'title'=>'编辑测试',
+  //            'form_info'=>json_encode($form_info),
+  //           	);
+		// 	$this->load->view('admin/header',$data);
+		// 	$this->load->view('admin/edit');
+		//     // $this->load->view('admin/footer');
+
+		// }
 
 	}
 
