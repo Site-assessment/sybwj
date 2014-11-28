@@ -143,10 +143,11 @@ class answer extends MY_Controller {
 	 */
 	function answer_in_mobile($form_id = 0){
 
+          $post = $this->input->post(NULL,TRUE);
 
-		if (isset($_POST['user_id'])) {
+		if ($post) {
 
-			$post = $this->input->post(NULL,TRUE);
+			// $post = $this->input->post(NULL,TRUE);
             //保存答案
 			$res = $this->answer->answer_in($post);
 
@@ -225,6 +226,7 @@ class answer extends MY_Controller {
 			// 'title'=>'已答过',
 			'errorcode'    => 0,
 			'message'      => 'ok',
+			'count'        => count($answered_list);
 			'answered_list'=> $answered_list,
 			// 'userinfo'=>$_SESSION['user'],
 			);

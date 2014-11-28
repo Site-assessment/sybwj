@@ -118,7 +118,7 @@ class login_model extends CI_Model{
 		 if ($res) {
 		 	# 注册用户信息
 		 	$_SESSION['user'] = $res;
-		 	return true;
+		 	return $res;
 		 }else{
 		 	return false;
 		 }

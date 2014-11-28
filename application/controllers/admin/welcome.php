@@ -47,7 +47,7 @@ class Welcome extends MY_Controller {
 	// }
      
 	/**
-	 * @abstract 教师/学生端登陆
+	 * @abstract 教师/学生端登陆(PC)
 	 * @link http://www.flappyant.com/sybwj/admin/welcome/boss_login
 	 */
 	function boss_login(){
@@ -102,18 +102,18 @@ class Welcome extends MY_Controller {
 	 */
 	function stu_login_mobile(){
         //提交表单（post）
-		if (isset($_POST['username'])) {
-			# code...
-			$_post  = $this->input->post(NULL,TRUE);
-			//判断state = 0;
-			$res = $this->login->stu_login($_post);
+        $post = $this->input->post(NULL,TRUE);
+		if ($post) {
+			
+
+			$res = $this->login->stu_login($post);
 			//若用户名存在
 			if ($res) {
                  //返回成功（json格式）
 				$data = array(
 					'errorcode' => 0,
 					'message'   => 'ok',
-					'userinfo'  =>  $_SESSION['user'],
+					'userinfo'  =>  $res,
 					);
 				echo json_encode($data);
 			}else{
