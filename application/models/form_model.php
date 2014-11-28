@@ -30,33 +30,49 @@ class form_model extends CI_Model{
        $this->db->insert('form',$data_form);
        $form_id = $this->db->insert_id();
 
+       if ($form_id) {
+             # code...
+            foreach ($post['form']['ques'] as $ques_data) {
+            # 构造问题
+                $data_ques = array(
+                       'form_id'=>$form_id,
+                     'ques_name'=>$ques_data['ques_name'],
+                  );
+                //保存问题，得到ques_id
+                $this->db->insert('ques',$data_ques);
+                $ques_id = $this->db->insert_id();
 
-       foreach ($post['form']['ques'] as $ques_data) {
-       	# 构造问题
-           	$data_ques = array(
-                   'form_id'=>$form_id,
-                 'ques_name'=>$ques_data['ques_name'],
-           		);
-           	//保存问题，得到ques_id
-            $this->db->insert('ques',$data_ques);
-            $ques_id = $this->db->insert_id();
+                    if ($ques_id) {
+                        # code...
+                            foreach ($ques_data['opt'] as $key=>$opt_data) {
+                            # 构造选项
+                             $data_opt = array(
 
-           	  foreach ($ques_data['opt'] as $key=>$opt_data) {
-           	  	# 构造选项
-           	  	 $data_opt = array(
+                              'ques_id'  =>$ques_id,
+                              'content'  =>$opt_data['content'],
+                              'is_answer'=>$opt_data['is_answer'],
+                              'location' =>$key,
+                              );
+                             //保存选项
+                             $this->db->insert('opt',$data_opt);
+                          }
+                    }else{
+                        return false;
+                    }
 
-           	  	 	'ques_id'  =>$ques_id,
-           	  	 	'content'  =>$opt_data['content'],
-           	  	 	'is_answer'=>$opt_data['is_answer'],
-           	  	 	'location' =>$key,
-           	  	 	);
-           	  	 //保存选项
-           	  	 $this->db->insert('opt',$data_opt);
-           	  }
-           }
+
+               }
+
+               
+       }else{
+        return false;
+       }
 
 
        return true;
+
+
+       
 
 	}
 
