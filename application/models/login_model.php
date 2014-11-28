@@ -93,13 +93,21 @@ class login_model extends CI_Model{
 			 	    return "ok";
 			 	 }else{
 			 	 	//用户存在，但是身份选择错误
+			 	 	if (isset($_SESSION['user'])) {
+			 	 		# code...
+			 	 		unset($_SESSION['user']);
+			 	 	}
 			 	    // unset($_SESSION['user']);
 			 	    return "state_error";
 			     }
 
 			 }else{
 
-				 	//不存在该用户
+				 //不存在该用户
+			 	if (isset($_SESSION['user'])) {
+			 	 		# code...
+			 	 		unset($_SESSION['user']);
+			 	 	}
 			 	    // unset($_SESSION['user']);
 				 	return "unexists";
 
