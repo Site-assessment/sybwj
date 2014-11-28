@@ -35,9 +35,9 @@ class pannel_form extends MY_Controller {
 	 */
 	public function form_add(){
 
-		if (isset($_POST['user_id'])) {//(js)
+        $_post = $this->input->post(NULL,TRUE);
+		if ($_post) {//(js)
 			# 插入表单数据，json数据格式
-			$_post = $this->input->post(NULL,TRUE);
 
 
 			//todo  model
@@ -52,7 +52,7 @@ class pannel_form extends MY_Controller {
 						'message'   => 'ok',
 
 							);
-			}esle{
+			}else{
 				    //若操作失败，则返回失败
 					$data = array(
 
@@ -64,6 +64,7 @@ class pannel_form extends MY_Controller {
 
             //返回结果（前端JS）
 			echo json_encode($data);
+			
 		}else{
 
 
