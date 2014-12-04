@@ -53,6 +53,8 @@ class pannel_form extends MY_Controller {
 						'message'   => 'ok',
 
 							);
+					echo json_encode($data);
+
 			}else{
 				    //若操作失败，则返回失败
 					$data = array(
@@ -61,13 +63,12 @@ class pannel_form extends MY_Controller {
 						'message'   => 'error',
 
 							);
+					echo json_encode($data);
+
 			}
 
-            //返回结果（前端JS）
-			echo json_encode($data);
 
-		}
-		else{
+		}else{
 
 
             //get请求，加载新增测试页面
@@ -144,15 +145,15 @@ class pannel_form extends MY_Controller {
      *@abstract 编辑表单页面  操作--更新表单(先插入，成功后，再删除)
      *@link http://www.flappyant.com/sybwj/admin/pannel_form/form_edit
      */
-	public function form_edit($form_id){
+	public function form_edit($form_id = 0){
 
 		$_post = $this->input->post(NULL,TRUE);
 
 		if ($_post) {//(js)
 
 			//插入编辑过的表单,unset form_id;
-			$res = $this->form->insert($_post);
-			if ($res) {
+			$form_id = $this->form->insert($_post);
+			if ($form_id) {
 				# 删除原表单
 				$this->form_delete($form_id);
 				//操作成功，返回成功，跳转到测试列表（js跳转）
@@ -180,8 +181,7 @@ class pannel_form extends MY_Controller {
 
 
 
-		}
-		else{//get，加载编辑页面
+		}else{//get，加载编辑页面
 
             //获取要编辑的测试内容;todo model(返回array（）格式forminfo)
             $form_info =  $this->form->get_form_info($form_id);

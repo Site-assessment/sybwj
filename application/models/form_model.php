@@ -18,7 +18,7 @@ class form_model extends CI_Model{
 
         // $post = json_decode($post);
 		//构造表单,todo   每层做操作验证是否成功
-        if (isset($post['user_id']) && isset($post['username']) && isset($post['form']['username'])) {
+        if (isset($post['user_id']) && isset($post['username']) && isset($post['form']['form_name'])) {
 
         
 
@@ -71,7 +71,7 @@ class form_model extends CI_Model{
 
                    }
 
-                return true;
+                return $form_id;
 
                    
            }else{

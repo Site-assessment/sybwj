@@ -90,9 +90,11 @@ class answer extends MY_Controller {
 	 */
 	function answer_in($form_id = 0){
 
-		if (isset($_POST['user_id'])) {
+		 $post = $this->input->post(NULL,TRUE);
 
-			$post = $this->input->post(NULL,TRUE);
+
+		if ($post) {
+
 			//保存答案
 			$res = $this->answer->answer_in($post);
 
