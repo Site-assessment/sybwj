@@ -138,7 +138,7 @@ class answer extends MY_Controller {
 
 
 	/**
-	 * @abstract 答题页面/保存答案(mobile)--移动端接口
+	 * @abstract 答题页面/保存答案(mobile)--移动端接口--webView显示PC端的页面
 	 * @link http://www.flappyant.com/sybwj/user/answer/answer_in_mobile/(?form_id[GET])
 	 */
 	function answer_in_mobile($form_id = 0){
@@ -257,7 +257,7 @@ class answer extends MY_Controller {
 
 
 	/**
-	 * @abstract 已答过测试详情(mobile)--移动端接口[包括显示答案]
+	 * @abstract 已答过测试详情(mobile)--移动端接口[包括显示答案]--webView显示PC端的页面
 	 * @link http://www.flappyant.com/sybwj/user/answer/answered_info_mobile/(?form_id&&?user_id[GET])
 	 */
 	function answered_info_mobile($form_id = 0,$user_id = 0){

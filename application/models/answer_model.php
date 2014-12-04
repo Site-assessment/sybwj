@@ -66,8 +66,30 @@ class answer_model extends CI_Model{
 	 */
 	function answer_in($post){
 
+		$answer_data = array(
+			'user_id' =>$post['user_id'],
+		   'username' =>$post['username'],
+			'form_id' =>$post['form_id'],
+			  'grade' =>$post['grade'],
+			);
+		//插入回答测试的成绩及答题人信息
+		$this->db->insert('answer',$answer_data);
+		$answer_group_id = $this->db->insert_id();
 
+		//插入回答内容
+		foreach ($post['answer'] as $key => $value) {
 
+			$answer_detail_data = array(
+			   'group_id'=>$answer_group_id,
+				'ques_id'=>$value['ques_id'],
+				'opt_id' =>$value['opt_id'],
+			'opt_content'=>$value['opt_content'],
+				);
+			//插入数据
+			$this->db->insert('answer_detail',$answer_detail_data);
+		}
+
+		return true;
 
 	}
 
@@ -76,6 +98,12 @@ class answer_model extends CI_Model{
 	 */
 	function get_answered_list($user_id){
 
+        $where = array('user_id',$user_id);
+        //获取答过测试列表
+		$answered_list = $this->db->get_where('answer',$where)->result_array();
+
+		return $answered_list;
+
 	}
 
 
@@ -83,6 +111,36 @@ class answer_model extends CI_Model{
 	 * @abstract 获取学生已答过测试详情
 	 */
 	function get_answered_info($form_id,$user_id){
+
+
+		//获取所做的答案
+		$where = array(
+
+			'user_id'=>$user_id,
+			'form_id'=>$form_id,
+
+			);
+
+		$answer_ob = $this->db->get_where('answer',$where)->row_array();
+		//获取group_id
+		$group_id = $answer_ob['answer_group_id'];
+		//获取所做的选择列表
+		$answer = $this->db->get_where('answer_detail',array('group_id'=>$group_id))->result_array();
+
+		//重构选择列表
+		$answer_list = array();
+		foreach ($answer as $key => $value) {
+
+              $answer_list[$value['ques_id']]['opt_id'] = $value['opt_id'];
+              $answer_list[$value['ques_id']]['opt_content'] = $value['opt_content'];
+
+		}
+
+		//封装数组
+		$answer_ob['answer'] = $answer_list;
+
+		return $answer_ob;
+
 		
 	}
 
