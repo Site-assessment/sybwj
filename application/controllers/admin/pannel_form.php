@@ -38,6 +38,7 @@ class pannel_form extends MY_Controller {
         $_post = $this->input->post(NULL,TRUE);
 		if ($_post) {//(js)
 			# 插入表单数据，json数据格式
+			// $_post = json_decode($_post);
 
 
 			//todo  model
@@ -66,21 +67,23 @@ class pannel_form extends MY_Controller {
 			echo json_encode($data);
 
 		}
-		// else{
+		else{
 
 
-  //           //get请求，加载新增测试页面
-		// 	$data = array(
-		// 		'userinfo'=>$_SESSION['user'],
-		// 		  'title' => '新建测试',
-		// 		);
-		// 	//加载新建测试页面
-		// 	$this->load->view('admin/header',$data);
-		// 	$this->load->view('admin/form_add');
-		//     // $this->load->view('admin/footer');
+            //get请求，加载新增测试页面
+			$data = array(
+				'userinfo'=>$_SESSION['user'],
+				  // 'title' => '新建测试',
+				);
+
+			echo json_encode($data);
+			//加载新建测试页面
+			// $this->load->view('admin/header',$data);
+			// $this->load->view('admin/form_add');
+		    // $this->load->view('admin/footer');
 			
 
-		// }
+		}
 
 
 	}
@@ -96,14 +99,16 @@ class pannel_form extends MY_Controller {
         $formlist = $this->form->get_form_list($status,$_SESSION['user_id']);
 
         $data = array(
-        	'title'=>'测试列表',
+        	// 'title'=>'测试列表',
          'formlist'=>$formlist,
         	);
 
+        echo json_encode($data);
+
         // echo "form list!";
         //加载测试列表页面
-        $this->load->view('admin/header',$data);
-        $this->load->view('admin/form_list');
+        // $this->load->view('admin/header',$data);
+        // $this->load->view('admin/form_list');
 		// $this->load->view('admin/footer');
 	}
 
@@ -121,12 +126,14 @@ class pannel_form extends MY_Controller {
     	if ($form_info) {
     		# code...
     		$data = array(
-    			'title'=>'测试详情',
+    			// 'title'=>'测试详情',
     	   '$form_info'=>$form_info,
     			);
 
-    		$this->load->view('admin/header',$data);
-			$this->load->view('admin/form_info');
+    		echo json_encode($data);
+
+   //  		$this->load->view('admin/header',$data);
+			// $this->load->view('admin/form_info');
     	}
   
 
@@ -174,20 +181,22 @@ class pannel_form extends MY_Controller {
 
 
 		}
-		// else{//get，加载编辑页面
+		else{//get，加载编辑页面
 
-  //           //获取要编辑的测试内容;todo model(返回array（）格式forminfo)
-  //           $form_info =  $this->form->get_form_info($form_id);
-  //           //forminfo 转换成json格式
-  //           $data = array(
-  //           	'title'=>'编辑测试',
-  //            'form_info'=>json_encode($form_info),
-  //           	);
-		// 	$this->load->view('admin/header',$data);
-		// 	$this->load->view('admin/edit');
-		//     // $this->load->view('admin/footer');
+            //获取要编辑的测试内容;todo model(返回array（）格式forminfo)
+            $form_info =  $this->form->get_form_info($form_id);
+            //forminfo 转换成json格式
+            $data = array(
+            	// 'title'=>'编辑测试',
+             'form_info'=>$form_info,
+            	);
 
-		// }
+            echo json_encode($data);
+			// $this->load->view('admin/header',$data);
+			// $this->load->view('admin/edit');
+		    // $this->load->view('admin/footer');
+
+		}
 
 	}
 

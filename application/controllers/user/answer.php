@@ -25,10 +25,12 @@ class answer extends MY_Controller {
          	'userinfo'=>$_SESSION['user'],
          	);
 
+         echo json_encode($data);
+
 		// 加载首页
-		 $this->load->view('admin/header',$data);
-		 $this->load->view('user/index');
-		 $this->load->view('admin/footer');
+		 // $this->load->view('admin/header',$data);
+		 // $this->load->view('user/index');
+		 // $this->load->view('admin/footer');
 
 
 	}
@@ -43,12 +45,13 @@ class answer extends MY_Controller {
 
          $data = array(
 
-         	'title'     => '测试列表',
+         	// 'title'     => '测试列表',
          	'test_list' => $test_list,
 
          	);
 
          //加载页面
+         echo json_encode($data);
 
 
 
@@ -122,12 +125,14 @@ class answer extends MY_Controller {
 			$test_content = $this->answer->get_test_content($form_id);
             
 			$data = array(
-				'title'       =>'答题',
-				'test_content'=>json_encode($test_content),
+				// 'title'       =>'答题',
+				'test_content'=>$test_content,
 				'userinfo'    =>$_SESSION['user'],
 				);
 
 			//加载页面
+
+			echo json_encode($data);
 
 		}
 
@@ -201,12 +206,14 @@ class answer extends MY_Controller {
 		$answerd_list = $this->answer->get_answered_list($_SESSION['user']['user_id']);
 
 		$data = array(
-			'title'        => '已答过',
+			// 'title'        => '已答过',
 			'answered_list'=> $answered_list,
 			'userinfo'     => $_SESSION['user'],
 			);
 
 		//加载页面
+
+		echo json_encode($data);
 
 
 
@@ -248,10 +255,12 @@ class answer extends MY_Controller {
 		$answered_info = $this->answer->get_answered_info($form_id,$user_id);
 
 		$data = array(
-			'title'=>'已答过详情',
+			// 'title'=>'已答过详情',
 			'test_content' =>$test_content,
 			'answered_info'=>$answered_info,
 			);
+
+		echo json_encode($data);
 
 	}
 

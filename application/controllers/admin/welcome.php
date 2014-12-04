@@ -262,7 +262,7 @@ class Welcome extends MY_Controller {
 
      /**
       * @abstract 教师端首页（PC）
-      * @link http://www.flappyant.com/sybwj/admin/welcome
+      * @link http://www.flappyant.com/sybwj/admin/welcome/index
       */
 	public function index()
 	{
@@ -271,10 +271,12 @@ class Welcome extends MY_Controller {
          	'userinfo'=>$_SESSION['user'],
          	);
 
+         echo json_encode($data);
+
 		// 加载首页
-		 $this->load->view('admin/header',$data);
-		 $this->load->view('admin/index');
-		 $this->load->view('admin/footer');
+		 // $this->load->view('admin/header',$data);
+		 // $this->load->view('admin/index');
+		 // $this->load->view('admin/footer');
 	}
 }
 

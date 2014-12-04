@@ -61,6 +61,7 @@ class form_model extends CI_Model{
                                   'is_answer'=>$opt_data['is_answer'],
                                   'location' =>$key,
                                   );
+
                                  //保存选项
                                  $this->db->insert('opt',$data_opt);
                               }
