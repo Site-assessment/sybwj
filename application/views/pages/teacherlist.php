@@ -19,7 +19,6 @@
                         <button type="button" class="btn btn-primary"   ng-click="delete($index)">删除</button>
                       </td>
                       <td>
-                      <td>
                       <button type="button" class="btn btn-primary"   ng-click="use($index)" value="启用"><div id="use">启用</div> </button>
                       </td>
                     </tr>

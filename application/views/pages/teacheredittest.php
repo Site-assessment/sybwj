@@ -57,23 +57,57 @@
 
         $scope.testform1=<?=$form_info?>;
         console.log('xad');
-        $scope.id=0;
-        $scope.opts_id=2;   
-        $scope.edit = function($index) {
-          $scope.id=$index;
-      };
-      $scope.addChoice = function() {
-        $scope.testform1.form.ques[$scope.id].opts.push({id:++$scope.opts_id,content: '' });
-    };
-    $scope.deleteChoice = function() {
-        $scope.edid=$scope.testform1.form.ques[$scope.id].opts.length-1;
-        $scope.testform1.form.ques[$scope.id].opts.splice({id:$scope.edid,content: '' },1);
-    };
-    $scope.editQuestion=function(){
-        $scope.id=0;
-    };
-    $scope.editTest=function(){
-      requestService.editTest($scope);
+          $scope.id=0;
+          $scope.opt_id=2; 
+          $scope.edid=0;   
+          $scope.did=0;
+        // $scope.id=0;
+        // $scope.opts_id=2;   
+$scope.trueanswer=function($index){
+    for(var i=0;i<$scope.testforms.form.ques[$scope.id].opt.length;i++)
+      $scope.testforms.form.ques[$scope.id].opt[i].is_answer=0;
+    $scope.testforms.form.ques[$scope.id].opt[$index].is_answer=1;
+  }
+  $scope.edit = function($index) {
+  $scope.id=$index;
   };
+  $scope.addChoice = function() {
+    $scope.testforms.form.ques[$scope.id].opt.push({content: '',is_answer:0 });
+  };
+  $scope.deleteQuestion = function() {
+     $scope.did=$scope.id;
+     $scope.testforms.form.ques.splice($scope.did,1);
+  };
+  $scope.deleteChoice = function() {
+    $scope.edid=$scope.testforms.form.ques[$scope.id].opt.length-1;
+    $scope.testforms.form.ques[$scope.id].opt.splice($scope.opts_id--,1);
+  };
+    $scope.addQuestion=function(){
+      $scope.id++;
+      $scope.edid=$scope.id;
+      $scope.testforms.form.ques[$scope.id]={ ques_name: '',opt: [ {content: '' ,is_answer: 0 }, {content: '' ,is_answer: 0}]};
+  };
+  $scope.editQuestion=function(){
+    $scope.id=$scope.edid;
+  };
+$scope.editTest=function(){
+  requestService.editTest($scope);
+};
+  //       $scope.edit = function($index) {
+  //         $scope.id=$index;
+  //     };
+  //     $scope.addChoice = function() {
+  //       $scope.testform1.form.ques[$scope.id].opts.push({id:++$scope.opts_id,content: '' });
+  //   };
+  //   $scope.deleteChoice = function() {
+  //       $scope.edid=$scope.testform1.form.ques[$scope.id].opts.length-1;
+  //       $scope.testform1.form.ques[$scope.id].opts.splice({id:$scope.edid,content: '' },1);
+  //   };
+  //   $scope.editQuestion=function(){
+  //   $scope.id=$scope.edid;
+  //   };
+  //   $scope.editTest=function(){
+  //     requestService.editTest($scope);
+  // };
 }])
 </script>
