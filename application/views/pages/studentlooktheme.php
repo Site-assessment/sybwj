@@ -11,7 +11,8 @@
                     </tr> 
                     <tr   ng-repeat="form in tests">
                       <td>{{$index+1}}</td>
-                      <td><a href="<?=site_url().'index.php/user/answer/answer_in/'?>{{form.form_id}}" >{{form.form_name}}</td>
+                      <!-- <a href="<?=site_url().'index.php/user/answer/answer_in/'?>{{form.form_id}}" > -->
+                      <td>{{form.form_name}}</td>
                       <td>{{form.username}}</td>
                       <td>{{form.cTime}}</td>
                       <td><button type="button" class="btn btn-primary"   ng-click="page($index)">详情 </button>
