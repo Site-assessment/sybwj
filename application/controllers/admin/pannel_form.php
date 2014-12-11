@@ -96,7 +96,7 @@ class pannel_form extends MY_Controller {
 	public function form_list($status = ''){
         
         //获取测试列表,status = 0 未启用， 1 启用 ，‘’ 全部;
-        $formlist = $this->form->get_form_list($status,$_SESSION['user_id']);
+        $formlist = $this->form->get_form_list($status,$_SESSION['user']['user_id']);
 
         $data = array(
         	// 'title'=>'测试列表',
