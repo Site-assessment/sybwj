@@ -106,7 +106,7 @@
             <div class="panel-body">
                   <div class="row" >
                       <div>
-                        <iframe src="<?php echo site_url('index.php/admin/welcome');?>" name="main-content" 
+                        <iframe src="<?php echo site_url('index.php/admin/pannel_form');?>" name="main-content" 
                          width="100%" height="670px" id="main-content" scrolling="auto" frameborder="0">
                         </iframe>
                       </div>

@@ -20,14 +20,16 @@ class pannel_form extends MY_Controller {
 	 * Index Page for this controller.
 	 *  @abstract 后台初始化页面
 	 */
-	// public function index()
-	// {
+	public function index()
+	{
 		
-	// 	$this->load->view('admin/header');
-	// 	$this->load->view('admin/info');
-	// 	// $this->load->view('admin/footer');
-	// 	// $this->load->view('welcome_message');
-	// }
+			    $this->load->view('pages/indexheader');
+               // $this->load->view('pages/teachermenu');
+                $this->load->view('pages/student');
+			
+		// $this->load->view('admin/footer');
+		// $this->load->view('welcome_message');
+	}
 
 	/**
 	 * @abstract 新建表单页面   操作--提交表单数据
