@@ -23,6 +23,7 @@ class pannel_form extends MY_Controller {
 	public function index()
 	{
 		
+			    $this->load->view('pages/indexheader');
                 $this->load->view('pages/student');
 			
 		// $this->load->view('admin/footer');

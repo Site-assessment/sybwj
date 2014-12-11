@@ -73,7 +73,7 @@
                               <div class="nav-canvas">
                                   <ul class="nav nav-pills nav-stacked main-menu">
                                       <li>
-                                          <a class="ajax-link" href="<?php echo site_url('index.php/user/answer');?>" target="main-content">
+                                          <a class="ajax-link" href="<?php echo site_url('index.php/admin/pannel_form');?>" target="main-content">
                                               <i class="glyphicon glyphicon-home"></i><span> 首页</span>
                                           </a>
                                       </li>
