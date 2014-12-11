@@ -56,7 +56,7 @@ AdministratorPlatform.controller('teacherGiveTestCtrl', ['$rootScope', '$scope',
     console.log($scope.userinfo);
     console.log($scope.testforms);
     $scope.testforms.user_id=$scope.userinfo.user_id;
-    $scope.testforms.username=$scope.userinfo.username;
+    $scope.testforms.username=$scope.userinfo.realname;
   $scope.id=0;
 $scope.opt_id=1;
   $scope.edid=0;   
