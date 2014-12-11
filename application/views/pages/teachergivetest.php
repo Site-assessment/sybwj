@@ -1,4 +1,4 @@
-
+    
 </head>
   <body ng-app="AdministratorPlatform">
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-controller="teacherGiveTestCtrl">
@@ -35,7 +35,7 @@
       <div class="col-xs-12">
         <button type="button" class="btn btn-primary" ng-click="addQuestion()"  ng-show="id==edid"    ><span ></span> 添加题目</button>
         <button type="button" class="btn btn-primary" ng-click="editQuestion()" ng-show="id!=edid"    ><span ></span> 修改题目</button>
-        <button type="button" class="btn btn-primary" ng-click="deleteQuestion()"    ><span ></span> 题目</button>
+        <button type="button" class="btn btn-primary" ng-click="deleteQuestion()"><span ></span> 删除题目</button>
     </div>
 </div> 
 <div class="row">
@@ -84,10 +84,12 @@ $scope.opt_id=1;
   };
   $scope.editQuestion=function(){
     $scope.id=$scope.edid;
-      $scope.testforms.form.ques[$scope.id]={ ques_name: '',opt: [ {content: '' ,is_answer: 0 }, {content: '' ,is_answer: 0}]};
+      // $scope.testforms.form.ques[$scope.id]={ ques_name: '',opt: [ {content: '' ,is_answer: 0 }, {content: '' ,is_answer: 0}]};
   };
   $scope.deleteQuestion=function(){
-     $scope.testforms.form.ques.splice($scope.id,1);
+    $scope.did=$scope.id;
+     $scope.testforms.form.ques.splice($scope.did,1);
+     // $scope.testforms.form.ques.splice($scope.id,1);
   };
    $scope.newtest = function () {
       requestService.newtest($scope);

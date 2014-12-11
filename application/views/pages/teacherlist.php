@@ -10,7 +10,7 @@
                       <td>状态</td>
                     </tr> 
                     <tr   ng-repeat="form in formlist">
-                      <td>{{$index+1}}</td>
+                      <td>{{form.form_id}}</td>
                       <td><a href="<?=site_url().'index.php/admin/pannel_form/form_info/'?>{{form.form_id}}" >{{form.form_name}}</td>
                       <td>{{form.username}}</td>
                       <td>{{form.cTime}}</td>
@@ -19,7 +19,8 @@
                         <button type="button" class="btn btn-primary"   ng-click="delete($index)">删除</button>
                       </td>
                       <td>
-                      <button type="button" class="btn btn-primary" id="use"  ng-click="use()">启用 </button>
+                      <td>
+                      <button type="button" class="btn btn-primary"   ng-click="use($index)" value="启用"><div id="use">启用</div> </button>
                       </td>
                     </tr>
                 </table>
@@ -33,14 +34,16 @@ AdministratorPlatform.controller('teacherListCtrl', ['$rootScope', '$scope', 're
   $scope.page=function($index){
      window.location.href="<?=site_url().'index.php/admin/pannel_form/form_info/'?>"+$scope.formlist[$index].form_id;
   }
-  $scope.use=function(){
-    x = document.getElementById("use");
-    if(x.innerHTML=="启用")
-      {alert("启用成功");
-      x.innerHTML="已启用";}
-      else if(x.innerHTML=="已启用")
-       {alert("结束启用成功");
-      x.innerHTML="启用";}
+$scope.use=function($index){
+    console.log($index);
+    console.log($scope.formlist[$index].form_id);
+    var $content1 = "已启用";
+    var $content2= "启用";
+    if($("#use").text()==$content2)
+     $("#use").html($content1);
+   else 
+    $("#use").html($content2);
+  requestService.typeChange($scope,$index);
   }
 $scope.edit=function($index){
   window.location.href="<?=site_url().'index.php/admin/pannel_form/form_edit/'?>"+$scope.formlist[$index].form_id;

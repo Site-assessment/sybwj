@@ -120,8 +120,8 @@ var edittest = function ($scope) {
         var testform=$scope.testforms;
         $http({
             method:'post',
-            url:domain+'admin/pannel_form/form_edit',
-            data:testforms
+            url:domain+'admin/pannel_form/form_edit'+$scope.testforms.form_id,
+            data:testform
         }).success(function (successInfo) {
              if(successInfo.errorcode==0)
            {alert("修改成功");
@@ -142,11 +142,15 @@ var deleteTest = function ($scope) {
             data:testforms
         }).success(function (successInfo) {
              if(successInfo.errorcode==0)
-           {alert("删除成功");
-            window.location.href=domain+'admin/pannel_form/form_list'; }
+           {
+            alert("删除成功");
+            window.location.href=domain+'admin/pannel_form/form_list';
+             }
             else
-            {alert("删除成功");
-            window.location.href=domain+'admin/pannel_form/form_list'; }
+            {
+                alert("删除失败");
+            }
+            // window.location.href=domain+'admin/pannel_form/form_list'; }
             console.log(successInfo);
         }).error(function (errorInfo) {
             console.log('error');
@@ -174,6 +178,20 @@ var postStudentTest = function($scope){
         $rootScope.administrator = null;
         $location.path('/')
     }
+
+    var typeChange = function($scope,$index){
+    $http({
+        method:'get',
+        url:domain+'admin/pannel_form/form_display/'+$scope.formlist[$index].form_id,
+        }).success(function (successInfo) {
+             if(successInfo.errorcode==0)
+            window.location.href=domain+'admin/pannel_form/form_list'; 
+        }).error(function (errorInfo) {
+            console.log('error');
+            console.log(errorInfo);
+        });
+    }
+
     return {
         form_id:form_id,
         paginationInit:paginationInit,
