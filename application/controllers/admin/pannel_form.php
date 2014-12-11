@@ -35,7 +35,7 @@ class pannel_form extends MY_Controller {
 	 */
 	public function form_add(){
 
-		$post = json_decode(file_get_contents('php://input','r'));
+		$post = json_decode(file_get_contents('php://input'),true);
 		if ($post) {//(js)
 			# 插入表单数据，json数据格式
 			// $post = json_decode($post);
@@ -78,9 +78,9 @@ class pannel_form extends MY_Controller {
 
 			// echo json_encode($data);
 			//加载新建测试页面
-			$this->load->view('admin/header',$data);
-			$this->load->view('admin/form_add');
-		    $this->load->view('admin/footer');
+			    $this->load->view('pages/indexheader');
+               // $this->load->view('pages/teachermenu');
+                $this->load->view('pages/teachergivetest',$data);
 			
 
 		}
@@ -107,9 +107,9 @@ class pannel_form extends MY_Controller {
 
         // echo "form list!";
         //加载测试列表页面
-        $this->load->view('admin/header',$data);
-        $this->load->view('admin/form_list');
-		$this->load->view('admin/footer');
+        $this->load->view('pages/indexheader');
+        $this->load->view('pages/teacherlist',$data);
+        $this->load->view('pages/indexfooter');
 	}
 
 
@@ -132,8 +132,10 @@ class pannel_form extends MY_Controller {
 
     		// echo json_encode($data);
 
-    		$this->load->view('admin/header',$data);
-			$this->load->view('admin/form_info');
+
+    		    $this->load->view('pages/indexheader');
+                $this->load->view('pages/teachertestpage',$data);
+                $this->load->view('pages/indexfooter');
     	}
   
 
@@ -146,7 +148,7 @@ class pannel_form extends MY_Controller {
      */
 	public function form_edit($form_id = 0){
 
-		$post = json_decode(file_get_contents('php://input','r'));
+		$post = json_decode(file_get_contents('php://input'),true);
 
 		if ($post) {//(js)
 
@@ -169,8 +171,8 @@ class pannel_form extends MY_Controller {
 				    //操作失败
 					$data = array(
 
-						'errorcode' => 0,
-						'message'   => 'ok',
+						'errorcode' => 1,
+						'message'   => 'fail',
 
 							);
 			        echo json_encode($data);
@@ -194,9 +196,9 @@ class pannel_form extends MY_Controller {
             	);
 
             // echo json_encode($data);
-			$this->load->view('admin/header',$data);
-			$this->load->view('admin/edit');
-		    $this->load->view('admin/footer');
+            $this->load->view('pages/indexheader');
+		 	$this->load->view('pages/teacheredittest',$data);
+
 
 		}
 
@@ -206,9 +208,9 @@ class pannel_form extends MY_Controller {
      * @link http://www.flappyant.com/sybwj/admin/pannel_form/form_delete
      * @abstract 操作 --删除表单(js)
      */
-	public function delete_form($form_id){
+	public function form_delete($form_id){
         //删除测试问卷  todo model
-		$res = $this->form->form_delete($form_id);
+		$res = $this->form->delete_form($form_id);
 
 		if ($res) {
 			# 操作成功

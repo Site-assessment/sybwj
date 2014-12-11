@@ -54,7 +54,7 @@ class Welcome extends MY_Controller {
 		//提交表单（post）
 
         //获取angularJS中的数据流
-		$post = json_decode(file_get_contents('php://input','r'));
+		$post = json_decode(file_get_contents('php://input'),true);
 		if ($post) {
 
 			$res = $this->login->boss_login($post);
@@ -91,8 +91,10 @@ class Welcome extends MY_Controller {
 
 
 
-               echo "登陆界面".site_url();
 
+                $this->load->view('pages/indexheader');
+                $this->load->view('pages/login');
+                $this->load->view('pages/indexfooter');
 		}
 
 	}
@@ -139,7 +141,7 @@ class Welcome extends MY_Controller {
 
 	function edit_user(){
         
-        $post = json_decode(file_get_contents('php://input','r'));
+        $post = json_decode(file_get_contents('php://input'),true);
 
         if ($post) {
 
@@ -287,10 +289,9 @@ class Welcome extends MY_Controller {
          // echo json_encode($data);
 
 		// 加载首页
-		 $this->load->view('admin/header',$data);
-		 $this->load->view('admin/index');
-		 $this->load->view('admin/footer');
-	}
+		$this->load->view('pages/indexheader',$data);
+		$this->load->view('pages/teachermenu');
+        $this->load->view('pages/indexfooter');	}
 }
 
 /* End of file welcome.php */

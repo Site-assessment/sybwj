@@ -28,10 +28,12 @@ class answer extends MY_Controller {
          // echo json_encode($data);
 
 		// 加载首页
-		 $this->load->view('admin/header',$data);
-		 $this->load->view('user/index');
-		 $this->load->view('admin/footer');
-
+        		$this->load->view('pages/indexheader',$data);
+                $this->load->view('pages/studentlooktheme');
+$this->load->view('pages/indexheader',$data);
+		$this->load->view('pages/studentmenu');
+        $this->load->view('pages/student');
+        $this->load->view('pages/indexfooter');
 
 	}
 
@@ -52,6 +54,8 @@ class answer extends MY_Controller {
 
          //加载页面
          // echo json_encode($data);
+		$this->load->view('pages/indexheader',$data);
+        $this->load->view('pages/studentlooktheme');
 
 
 
@@ -90,7 +94,7 @@ class answer extends MY_Controller {
 	 */
 	function answer_in($form_id = 0){
 
-		$post = json_decode(file_get_contents('php://input','r'));
+		$post = json_decode(file_get_contents('php://input'),true);
 
 
 		if ($post) {
@@ -133,7 +137,8 @@ class answer extends MY_Controller {
 				);
 
 			//加载页面
-
+			$this->load->view('pages/indexheader',$data);
+            $this->load->view('pages/studenttest');
 			// echo json_encode($data);
 
 		}
@@ -214,6 +219,9 @@ class answer extends MY_Controller {
 			);
 
 		//加载页面
+	    $this->load->view('pages/indexheader');
+        $this->load->view('pages/studenthistory',$data);
+
 
 		// echo json_encode($data);
 
@@ -263,6 +271,8 @@ class answer extends MY_Controller {
 			);
 
 		// echo json_encode($data);
+			$this->load->view('pages/indexheader');
+            $this->load->view('pages/studentlooktest',$data);
 
 	}
 
