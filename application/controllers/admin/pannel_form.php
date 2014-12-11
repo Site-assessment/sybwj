@@ -127,7 +127,7 @@ class pannel_form extends MY_Controller {
     		# code...
     		$data = array(
     			// 'title'=>'测试详情',
-    	   '$form_info'=>json_encode($form_info),
+    	   'form_info'=>json_encode($form_info),
     			);
 
     		// echo json_encode($data);
