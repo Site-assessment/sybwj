@@ -291,7 +291,8 @@ class Welcome extends MY_Controller {
 		// 加载首页
 		$this->load->view('pages/indexheader',$data);
 		$this->load->view('pages/teachermenu');
-        $this->load->view('pages/indexfooter');	}
+        $this->load->view('pages/indexfooter');
+     }
 }
 
 /* End of file welcome.php */
