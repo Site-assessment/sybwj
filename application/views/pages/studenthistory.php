@@ -2,7 +2,7 @@
             <!-- 问卷列表 -->
           <table class="table table-striped">
                     <tr class="success">
-                      <td>序号</td>
+                      <td>id</td>
                       <td>标题</td>
                       <td>做题人</td>
                       <td>做题时间</td>
@@ -10,8 +10,9 @@
                       <td>分数</td>
                     </tr> 
                     <tr   ng-repeat="form in tests">
-                      <td>{{$index+1}}</td>
-                      <td><a href="<?=site_url().'index.php/user/answer/answer_in/'?>{{form.form_id}}" >{{form.form_name}}</td>
+                      <td>{{form.form_id}}</td>
+                      <!-- <a href="<?=site_url().'index.php/user/answer/answer_in/'?>{{form.form_id}}" > -->
+                      <td>{{form.form_name}}</td>
                       <td>{{userinfo.realname}}</td>
                       <td>{{form.cTime}}</td>
                       <td><button type="button" class="btn btn-primary"   ng-click="page($index)">详情 </button>

@@ -3,19 +3,19 @@
             <!-- 问卷列表 -->
           <table class="table table-striped">
                     <tr class="success">
-                      <td>序号</td>
+                      <td>id</td>
                       <td>标题</td>
                       <td>出题人</td>
                       <td>出题时间</td>
                       <td>操作</td>
                     </tr> 
                     <tr   ng-repeat="form in tests">
-                      <td>{{$index+1}}</td>
+                      <td>{{form.form_id}}</td>
                       <!-- <a href="<?=site_url().'index.php/user/answer/answer_in/'?>{{form.form_id}}" > -->
                       <td>{{form.form_name}}</td>
                       <td>{{form.username}}</td>
                       <td>{{form.cTime}}</td>
-                      <td><button type="button" class="btn btn-primary"   ng-click="page($index)">详情 </button>
+                      <td><button type="button" class="btn btn-primary"   ng-click="page($index)">答题 </button>
                       </td>
                     </tr>
                 </table>
