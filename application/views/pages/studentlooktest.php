@@ -8,8 +8,8 @@
   <li class="test" ng-repeat="op in que.opt  track by $index"><span>{{op.content}}</span><span ng-if="answered_info.answer[que.ques_id].opt_id==op.opt_id">你选择的答案</span>&nbsp <span ng-if="op.is_answer==1">正确答案</span>{{que.stu_answer}}</li>
 </ol>
 </div>
- <a href="/studnet1" >返回 &raquo;</button>
-</div>
+<!--  <a href="/studnet1" >返回 &raquo;</button>
+ --></div>
 <script type="text/javascript">
 AdministratorPlatform.controller('studentLookTestCtrl', ['$rootScope', '$scope', 'requestService', function ($rootScope, $scope, requestService) {
 $scope.testform2=<?=$test_content?>;

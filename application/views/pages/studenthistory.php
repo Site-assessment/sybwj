@@ -6,8 +6,9 @@
                       <td>标题</td>
                       <td>做题人</td>
                       <td>做题时间</td>
-                      <td>操作</td>
                       <td>分数</td>
+                      <td>操作</td>
+                      
                     </tr> 
                     <tr   ng-repeat="form in tests">
                       <td>{{form.form_id}}</td>
@@ -15,9 +16,9 @@
                       <td>{{form.form_name}}</td>
                       <td>{{userinfo.realname}}</td>
                       <td>{{form.cTime}}</td>
+                      <td>{{form.grade}}</td>
                       <td><button type="button" class="btn btn-primary"   ng-click="page($index)">详情 </button>
                       </td>
-                       <td>{{form.grade}}</td>
                     </tr>
                 </table>
 </div>
