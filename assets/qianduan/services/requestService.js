@@ -37,10 +37,19 @@ AdministratorPlatform.factory('requestService', ['$http', '$rootScope', '$locati
         }).success(function (successInfo) {
             console.log('success');
             if(successInfo.errorcode==0)
-            if(state==1)
-            window.location.href=domain+'admin/welcome'; 
-            else
-            window.location.href=domain+'user/answer/index'; 
+            {
+                if(state==1)
+                window.location.href=domain+'admin/welcome'; 
+                else
+                window.location.href=domain+'user/answer/index'; 
+            }else if (successInfo.errorcode==1){
+
+                alert("请正确选择身份!");
+
+            }else if(successInfo.errorcode==2){
+                alert("用户名或密码错误!");
+
+            }
            console.log(successInfo);
         }).error(function (errorInfo) {
             console.log('error');
