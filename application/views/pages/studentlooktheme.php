@@ -13,7 +13,7 @@
                       <td>{{$index+1}}</td>
                       <td><a href="<?=site_url().'index.php/user/answer/answer_in/'?>{{form.form_id}}" >{{form.form_name}}</td>
                       <td>{{form.username}}</td>
-                      <td>{{form.ctime}}</td>
+                      <td>{{form.cTime}}</td>
                       <td><button type="button" class="btn btn-primary"   ng-click="page($index)">详情 </button>
                       </td>
                     </tr>

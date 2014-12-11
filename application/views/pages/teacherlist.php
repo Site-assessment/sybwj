@@ -13,7 +13,7 @@
                       <td>{{$index+1}}</td>
                       <td><a href="<?=site_url().'index.php/admin/pannel_form/form_info/'?>{{form.form_id}}" >{{form.form_name}}</td>
                       <td>{{form.username}}</td>
-                      <td>{{form.ctime}}</td>
+                      <td>{{form.cTime}}</td>
                       <td><button type="button" class="btn btn-primary"   ng-click="page($index)">详情 </button>
                         <button type="button" class="btn btn-primary"   ng-click="edit($index)">编辑 </button>
                         <button type="button" class="btn btn-primary"   ng-click="delete($index)">删除</button>
