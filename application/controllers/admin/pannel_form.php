@@ -237,7 +237,7 @@ class pannel_form extends MY_Controller {
 	}
 
     /**
-     * @link http://www.flappyant.com/sybwj/admin/pannel_form/form_delete
+     * @link http://www.flappyant.com/sybwj/admin/pannel_form/form_display
      * @abstract 操作 --启用/结束测试(js)
      */
     function form_display($form_id){
