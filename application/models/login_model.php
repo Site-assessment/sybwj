@@ -80,7 +80,7 @@ class login_model extends CI_Model{
 
          $state = $post['state'];
          unset($post['state']);
-         if ($state) {
+         if ($state == 0 || $state == 1) {
          	# code...
 	         $res  = $this->db->get_where('user',$post)->row_array();
 

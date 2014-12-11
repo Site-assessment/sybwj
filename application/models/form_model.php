@@ -199,6 +199,30 @@ class form_model extends CI_Model{
 
 	}
 
+    /**
+     *  @return boolean
+     *  @abstract 改变问卷表单状态处理方法 
+     */
+    function form_display($form_id){
+
+        $where = array('form_id'=>$form_id);
+        $form_ob = $this->db->get_where('form',$where)->row_array();
+
+        $status = 0;
+        if ($form_ob['status'] == 0) {
+            # code...
+            $status = 1;
+        }else{
+            $status = 0;
+        }
+
+        //更新测试启用状态
+        $this->db->where($where)->update('form',array('status'=>$status));
+
+        return true;
+
+    }
+
 
 
 

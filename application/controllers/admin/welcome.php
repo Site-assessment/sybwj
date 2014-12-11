@@ -52,11 +52,12 @@ class Welcome extends MY_Controller {
 	 */
 	function boss_login(){
 		//提交表单（post）
-		if (isset($_POST['username'])) {
-			# code...
-			$_post  = $this->input->post(NULL,TRUE);
-			//判断state = 1
-			$res = $this->login->boss_login($_post);
+
+        //获取angularJS中的数据流
+		$post = json_decode(file_get_contents('php://input','r'));
+		if ($post) {
+
+			$res = $this->login->boss_login($post);
 			//若用户名存在
 			if ($res == 'ok') {
                  //返回成功
@@ -138,21 +139,32 @@ class Welcome extends MY_Controller {
 
 	function edit_user(){
         
-        if (isset($_POST['user_id'])) {
+        $post = json_decode(file_get_contents('php://input','r'));
+
+        if ($post) {
 
         	//更新密码/真实姓名
-        	$post = $this->input->post(NULL,TRUE);
 
         	$res = $this->login->edit_user($post);
 
         	if ($res) {
 
         		//修改密码和真实姓名成功,返回主页
+        		$data = array(
+					'errorcode' => 0,
+					'message'   => 'ok',
+					);
+				echo json_encode($data);
 
 
         	}else{
         		        		
         		//返回操作失败页面
+        		$data = array(
+					'errorcode' => 1,
+					'message'   => 'fail',
+					);
+				echo json_encode($data);
 
 
         	}
@@ -160,6 +172,7 @@ class Welcome extends MY_Controller {
         }else{
 
         //加载修改密码界面
+
 
         }
 
@@ -268,15 +281,15 @@ class Welcome extends MY_Controller {
 	{
 
          $data = array(
-         	'userinfo'=>$_SESSION['user'],
+         	'userinfo'=>json_encode($_SESSION['user']),
          	);
 
-         echo json_encode($data);
+         // echo json_encode($data);
 
 		// 加载首页
-		 // $this->load->view('admin/header',$data);
-		 // $this->load->view('admin/index');
-		 // $this->load->view('admin/footer');
+		 $this->load->view('admin/header',$data);
+		 $this->load->view('admin/index');
+		 $this->load->view('admin/footer');
 	}
 }
 

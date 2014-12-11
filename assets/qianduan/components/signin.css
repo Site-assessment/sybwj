@@ -1,0 +1,102 @@
+.container {
+  padding-top: 100px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 3;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.state1{
+  float: left;
+}
+.menu {
+  position:fixed;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display:inline;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: block;
+  background-color: #f5f5f5;
+  border-right: 1px solid #eee;
+}
+.active{
+  position:relative;
+  display: block;
+  margin: 10px;
+  line-height: 20px;
+  font-family: LiSu;
+  font-size: 20px;
+}
+
+
+.main{
+  font-family: LiSu;
+  font-size:20px;
+  position:relative;
+  margin: 5%,20%;
+  padding: 20px;
+}
+.title{
+  display: inline;
+  margin: 20%;
+  padding: 200px;
+}
+ul.alpha{
+  list-style-type:upper-alpha;
+}
+.question{
+  margin: 10px;
+  padding: 0px,100px;
+}
+.q1{
+  margin: 5%;
+  padding: 5px;
+}
+.q2{
+  margin: 5%;
+  padding: 5px;
+}
+.q{
+  margin: 5%;
+  padding: 5px;
+}
+.make{
+  margin: 5%;
+  padding: 5px
+}

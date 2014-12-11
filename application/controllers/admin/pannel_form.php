@@ -35,14 +35,14 @@ class pannel_form extends MY_Controller {
 	 */
 	public function form_add(){
 
-        $_post = $this->input->post(NULL,TRUE);
-		if ($_post) {//(js)
+		$post = json_decode(file_get_contents('php://input','r'));
+		if ($post) {//(js)
 			# 插入表单数据，json数据格式
-			// $_post = json_decode($_post);
+			// $post = json_decode($post);
 
 
 			//todo  model
-			$res = $this->form->insert($_post);
+			$res = $this->form->insert($post);
 
 			if ($res) {
 				# code...
@@ -73,15 +73,14 @@ class pannel_form extends MY_Controller {
 
             //get请求，加载新增测试页面
 			$data = array(
-				'userinfo'=>$_SESSION['user'],
-				  // 'title' => '新建测试',
+				'userinfo'=>json_encode($_SESSION['user']),
 				);
 
-			echo json_encode($data);
+			// echo json_encode($data);
 			//加载新建测试页面
-			// $this->load->view('admin/header',$data);
-			// $this->load->view('admin/form_add');
-		    // $this->load->view('admin/footer');
+			$this->load->view('admin/header',$data);
+			$this->load->view('admin/form_add');
+		    $this->load->view('admin/footer');
 			
 
 		}
@@ -101,16 +100,16 @@ class pannel_form extends MY_Controller {
 
         $data = array(
         	// 'title'=>'测试列表',
-         'formlist'=>$formlist,
+         'formlist'=>json_encode($formlist),
         	);
 
-        echo json_encode($data);
+        // echo json_encode($data);
 
         // echo "form list!";
         //加载测试列表页面
-        // $this->load->view('admin/header',$data);
-        // $this->load->view('admin/form_list');
-		// $this->load->view('admin/footer');
+        $this->load->view('admin/header',$data);
+        $this->load->view('admin/form_list');
+		$this->load->view('admin/footer');
 	}
 
 
@@ -128,13 +127,13 @@ class pannel_form extends MY_Controller {
     		# code...
     		$data = array(
     			// 'title'=>'测试详情',
-    	   '$form_info'=>$form_info,
+    	   '$form_info'=>json_encode($form_info),
     			);
 
-    		echo json_encode($data);
+    		// echo json_encode($data);
 
-   //  		$this->load->view('admin/header',$data);
-			// $this->load->view('admin/form_info');
+    		$this->load->view('admin/header',$data);
+			$this->load->view('admin/form_info');
     	}
   
 
@@ -147,12 +146,12 @@ class pannel_form extends MY_Controller {
      */
 	public function form_edit($form_id = 0){
 
-		$_post = $this->input->post(NULL,TRUE);
+		$post = json_decode(file_get_contents('php://input','r'));
 
-		if ($_post) {//(js)
+		if ($post) {//(js)
 
 			//插入编辑过的表单,unset form_id;
-			$form_id = $this->form->insert($_post);
+			$form_id = $this->form->insert($post);
 			if ($form_id) {
 				# 删除原表单
 				$this->form_delete($form_id);
@@ -162,7 +161,9 @@ class pannel_form extends MY_Controller {
 						'errorcode' => 0,
 						'message'   => 'ok',
 
-							);				
+							);	
+		            echo json_encode($data);
+			
 
 		        }else{
 				    //操作失败
@@ -172,10 +173,11 @@ class pannel_form extends MY_Controller {
 						'message'   => 'ok',
 
 							);
+			        echo json_encode($data);
+
 			    }
 
 
-		        echo json_encode($data);
 			
 
 
@@ -188,13 +190,13 @@ class pannel_form extends MY_Controller {
             //forminfo 转换成json格式
             $data = array(
             	// 'title'=>'编辑测试',
-             'form_info'=>$form_info,
+             'form_info'=>json_encode($form_info),
             	);
 
-            echo json_encode($data);
-			// $this->load->view('admin/header',$data);
-			// $this->load->view('admin/edit');
-		    // $this->load->view('admin/footer');
+            // echo json_encode($data);
+			$this->load->view('admin/header',$data);
+			$this->load->view('admin/edit');
+		    $this->load->view('admin/footer');
 
 		}
 
@@ -204,7 +206,7 @@ class pannel_form extends MY_Controller {
      * @link http://www.flappyant.com/sybwj/admin/pannel_form/form_delete
      * @abstract 操作 --删除表单(js)
      */
-	public function form_delete($form_id){
+	public function delete_form($form_id){
         //删除测试问卷  todo model
 		$res = $this->form->form_delete($form_id);
 
@@ -230,6 +232,35 @@ class pannel_form extends MY_Controller {
 		echo json_encode($data);
 
 	}
+
+    /**
+     * @link http://www.flappyant.com/sybwj/admin/pannel_form/form_delete
+     * @abstract 操作 --启用/结束测试(js)
+     */
+    function form_display($form_id){
+
+    	$res = $this->form->form_display($form_id);
+
+    	if ($res) {
+    		# code...
+    		$data = array(
+                'errorcode' => 0,
+                'message'   => 'ok',
+    			);
+    		echo json_encode($data);
+    	}else{
+    		$data = array(
+                'errorcode' => 1,
+                'message'   => 'fail',
+    			);
+    		echo json_encode($data);
+    	}
+
+
+
+    }
+
+
 }
 
 

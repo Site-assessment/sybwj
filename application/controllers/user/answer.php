@@ -22,15 +22,15 @@ class answer extends MY_Controller {
 	function index(){
 
          $data = array(
-         	'userinfo'=>$_SESSION['user'],
+         	'userinfo'=>json_encode($_SESSION['user']),
          	);
 
-         echo json_encode($data);
+         // echo json_encode($data);
 
 		// 加载首页
-		 // $this->load->view('admin/header',$data);
-		 // $this->load->view('user/index');
-		 // $this->load->view('admin/footer');
+		 $this->load->view('admin/header',$data);
+		 $this->load->view('user/index');
+		 $this->load->view('admin/footer');
 
 
 	}
@@ -46,12 +46,12 @@ class answer extends MY_Controller {
          $data = array(
 
          	// 'title'     => '测试列表',
-         	'test_list' => $test_list,
+         	'test_list' => json_encode($test_list),
 
          	);
 
          //加载页面
-         echo json_encode($data);
+         // echo json_encode($data);
 
 
 
@@ -90,7 +90,7 @@ class answer extends MY_Controller {
 	 */
 	function answer_in($form_id = 0){
 
-		 $post = $this->input->post(NULL,TRUE);
+		$post = json_decode(file_get_contents('php://input','r'));
 
 
 		if ($post) {
@@ -128,13 +128,13 @@ class answer extends MY_Controller {
             
 			$data = array(
 				// 'title'       =>'答题',
-				'test_content'=>$test_content,
-				'userinfo'    =>$_SESSION['user'],
+				'test_content'=>json_encode($test_content),
+				'userinfo'    =>json_encode($_SESSION['user']),
 				);
 
 			//加载页面
 
-			echo json_encode($data);
+			// echo json_encode($data);
 
 		}
 
@@ -205,17 +205,17 @@ class answer extends MY_Controller {
 	function answered_list(){
 
         //获取该学生已答过的列表
-		$answerd_list = $this->answer->get_answered_list($_SESSION['user']['user_id']);
+		$answered_list = $this->answer->get_answered_list($_SESSION['user']['user_id']);
 
 		$data = array(
 			// 'title'        => '已答过',
-			'answered_list'=> $answered_list,
-			'userinfo'     => $_SESSION['user'],
+			'answered_list'=> json_encode($answered_list),
+			'userinfo'     => json_encode($_SESSION['user']),
 			);
 
 		//加载页面
 
-		echo json_encode($data);
+		// echo json_encode($data);
 
 
 
@@ -250,19 +250,19 @@ class answer extends MY_Controller {
 	 * @abstract 已答过测试详情(PC)[包括显示答案]--API
 	 * @link http://www.flappyant.com/sybwj/user/answer/answered_info/(?form_id&&?user_id[GET])
 	 */
-	function answered_info($form_id = 0,$user_id = 0){
+	function answered_info($answer_group_id = 0,$form_id= 0,$user_id = 0){
         //获取测试内容
 		$test_content  = $this->answer->get_test_content($form_id);
 		//获取该学生测试所做的内容
-		$answered_info = $this->answer->get_answered_info($form_id,$user_id);
+		$answered_info = $this->answer->get_answered_info($answer_group_id,$user_id);
 
 		$data = array(
 			// 'title'=>'已答过详情',
-			'test_content' =>$test_content,
-			'answered_info'=>$answered_info,
+			'test_content' =>json_encode($test_content),
+			'answered_info'=>json_encode($answered_info),
 			);
 
-		echo json_encode($data);
+		// echo json_encode($data);
 
 	}
 

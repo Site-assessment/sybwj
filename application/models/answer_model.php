@@ -98,7 +98,7 @@ class answer_model extends CI_Model{
 	 */
 	function get_answered_list($user_id){
 
-        $where = array('user_id',$user_id);
+        $where = array('user_id'=>$user_id);
         //获取答过测试列表
 		$answered_list = $this->db->get_where('answer',$where)->result_array();
 
@@ -110,14 +110,14 @@ class answer_model extends CI_Model{
     /**
 	 * @abstract 获取学生已答过测试详情
 	 */
-	function get_answered_info($form_id,$user_id){
+	function get_answered_info($answer_group_id,$user_id){
 
 
 		//获取所做的答案
 		$where = array(
 
 			'user_id'=>$user_id,
-			'form_id'=>$form_id,
+			'answer_group_id'=>$answer_group_id,
 
 			);
 
