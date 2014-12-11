@@ -22,17 +22,14 @@ class answer extends MY_Controller {
 	function index(){
 
          $data = array(
-         	'userinfo'=>json_encode($_SESSION['user']),
+         	'userinfo'=>$_SESSION['user'],
          	);
 
          // echo json_encode($data);
 
 		// 加载首页
-        		$this->load->view('pages/indexheader',$data);
-                $this->load->view('pages/studentlooktheme');
-$this->load->view('pages/indexheader',$data);
+        $this->load->view('pages/indexheader',$data);
 		$this->load->view('pages/studentmenu');
-        $this->load->view('pages/student');
         $this->load->view('pages/indexfooter');
 
 	}

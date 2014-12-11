@@ -40,7 +40,7 @@
 
       
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#" ><i class="glyphicon glyphicon-user"><span><?=$userinfo['realname']?></span></i></a></li>
+              <li><a href="#" ><i class="glyphicon glyphicon-user"><span><?=$userinfo['realname']?>老师,您好!</span></i></a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">设置 <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
