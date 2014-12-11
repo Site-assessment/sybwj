@@ -283,7 +283,7 @@ class Welcome extends MY_Controller {
 	{
 
          $data = array(
-         	'userinfo'=>json_encode($_SESSION['user']),
+         	'userinfo'=>$_SESSION['user'],
          	);
 
          // echo json_encode($data);
