@@ -52,50 +52,78 @@ class Welcome extends MY_Controller {
 	 */
 	function boss_login(){
 		//提交表单（post）
+		if (isset($_SESSION['user']['user_id'])) {
 
-        //获取angularJS中的数据流
-		$post = json_decode(file_get_contents('php://input'),true);
-		if ($post) {
+			if ($_SESSION['user']['state'] == 0) {
+			//学生
+				         $data = array(
+					         	'userinfo'=>$_SESSION['user'],
+					         	);
 
-			$res = $this->login->boss_login($post);
-			//若用户名存在
-			if ($res == 'ok') {
-                 //返回成功
-				$data = array(
-					'errorcode' => 0,
-					'message'   => 'ok',
-					'userinfo'  =>  $_SESSION['user'],
-					);
-				echo json_encode($data);
+						// 加载首页
+				        $this->load->view('pages/indexheader',$data);
+						$this->load->view('pages/studentmenu');
+				        $this->load->view('pages/indexfooter');
 
-			}elseif ($res == 'state_error') {
-				# code...
-				$data = array(
-					'errorcode' => 1,
-					'message'   => 'state_error',
-					// 'userinfo'  =>  $_SESSION['user'],
-					);
-				echo json_encode($data);
-			}elseif ($res == 'unexists'){
-                //重新输入密码
-                $data = array(
-					'errorcode' => 2,
-					'message'   => 'user unexists',
-					// 'userinfo'  =>  $_SESSION['user'],
-					);
-				echo json_encode($data);
 
+
+			}else{
+			//老师
+
+				$this->index();
 
 			}
-		}else{//登陆页面（get）
+
+
+			# code...
+		}else{
+
+
+
+	        //获取angularJS中的数据流
+			$post = json_decode(file_get_contents('php://input'),true);
+			if ($post) {
+
+				$res = $this->login->boss_login($post);
+				//若用户名存在
+				if ($res == 'ok') {
+	                 //返回成功
+					$data = array(
+						'errorcode' => 0,
+						'message'   => 'ok',
+						'userinfo'  =>  $_SESSION['user'],
+						);
+					echo json_encode($data);
+
+				}elseif ($res == 'state_error') {
+					# code...
+					$data = array(
+						'errorcode' => 1,
+						'message'   => 'state_error',
+						// 'userinfo'  =>  $_SESSION['user'],
+						);
+					echo json_encode($data);
+				}elseif ($res == 'unexists'){
+	                //重新输入密码
+	                $data = array(
+						'errorcode' => 2,
+						'message'   => 'user unexists',
+						// 'userinfo'  =>  $_SESSION['user'],
+						);
+					echo json_encode($data);
+
+
+				}
+			}else{//登陆页面（get）
 
 
 
 
-                $this->load->view('pages/indexheader');
-                $this->load->view('pages/login');
-                $this->load->view('pages/indexfooter');
-		}
+	                $this->load->view('pages/indexheader');
+	                $this->load->view('pages/login');
+	                $this->load->view('pages/indexfooter');
+			}
+	    }
 
 	}
 
