@@ -5,7 +5,7 @@
 	<div ng-model="id" ng-init="id=$index"></div>
 <p>题目:<span>{{que.ques_name}}</span></p>
  <label>选项：</label> <ol type="A">
-  <li class="test" ng-repeat="op in que.opt  track by $index"><span>{{op.content}}</span><span ng-if="answered_info.answer[id+1].opt_id==op.opt_id">你选择的答案</span>&nbsp <span ng-if="op.is_answer==1">正确答案</span>{{que.stu_answer}}</li>
+  <li class="test" ng-repeat="op in que.opt  track by $index"><span>{{op.content}}</span><span ng-if="answered_info.answer[que.ques_id].opt_id==op.opt_id">你选择的答案</span>&nbsp <span ng-if="op.is_answer==1">正确答案</span>{{que.stu_answer}}</li>
 </ol>
 </div>
  <a href="/studnet1" >返回 &raquo;</button>
