@@ -3,7 +3,7 @@
     <div   class="jumbotron">
         <div class="container">
           <h1>{{testform1.form.form_name}}</h1>
-          <div ng-repeat="que in testform1.form.ques track by $index">
+          <div ng-repeat="que in testforms.form.ques track by $index">
             <p>题目:<span>{{que.ques_name}}</span><button type="button" ng-click="edit($index)">修改题目</button></p>
             <label>选项：</label> <ol type="A" >
             <li ng-repeat="opt in que.opt  track by $index"><span>{{opt.content}}</span><span ng-if="opt.is_answer == 1">正确答案</span></li>
@@ -15,13 +15,13 @@
   <div >
       <div class="form-group" >
         <label >问题：</label>
-        <input type="text" ng-model="testform1.form.ques[id].ques_name"  placeholder="Enter  question">
+        <input type="text" ng-model="testforms.form.ques[id].ques_name"  placeholder="Enter  question">
     </div> 
     <div class="form-group">
         <label>选项：</label>
-        <div ng-repeat="opt in testform1.form.ques[id].opt"> 
+        <div ng-repeat="opt in testforms.form.ques[id].opt"> 
           <input type="text" ng-model="opt.content" placeholder="Enter choice {{$index+1}} text">
-          <input type="radio"  ng-model="opt.is_answer" name="{{testform1.form.ques[id]}}" value="1" ng-click="trueanswer($index)">正确答案
+          <input type="radio"  ng-model="opt.is_answer" name="{{testforms.form.ques[id]}}" value="1" ng-click="trueanswer($index)">正确答案
           <!-- {{opt.opt_id}}{{opt.is_answer}} -->
       </div>
   </div>   
@@ -55,7 +55,7 @@
 <script language="javascript">
     AdministratorPlatform.controller('teacherEditTest', ['$rootScope', '$scope', 'requestService', function ($rootScope, $scope, requestService) { 
 
-        $scope.testform1=<?=$form_info?>;
+        $scope.testforms=<?=$form_info?>;
         console.log('xad');
           $scope.id=0;
           $scope.opt_id=2; 
