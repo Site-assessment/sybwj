@@ -116,7 +116,7 @@ var newtest = function ($scope) {
         });
     }
     //修改测试
-var edittest = function ($scope) {
+var editTest = function ($scope) {
         var testform=$scope.testforms;
         $http({
             method:'post',
