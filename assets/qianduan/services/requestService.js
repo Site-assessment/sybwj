@@ -5,7 +5,7 @@
 
 AdministratorPlatform.factory('requestService', ['$http', '$rootScope', '$location', function ($http, $rootScope, $location) {
 //   后台地址
-    var domain = "http://localhost/sybwj-master/index.php/";
+    var domain = "http://www.flappyant.com/sybwj/";
     var form_id='';
 // 对象
     var testforms={
