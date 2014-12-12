@@ -246,19 +246,11 @@ class pannel_form extends MY_Controller {
 
     	if ($res) {
     		# code...
-    		$data = array(
-                'errorcode' => 0,
-                'message'   => 'ok',
-                'form_id'   =>$form_id,
-    			);
-    		echo json_encode($data);
+    		$this->form_list();
     	}else{
-    		$data = array(
-                'errorcode' => 1,
-                'message'   => 'fail',
-                 'form_id'   =>$form_id,
-   			);
-    		echo json_encode($data);
+             $this->form_list();
+
+
     	}
 
 

@@ -24,11 +24,12 @@
                       <td><button type="button" class="btn btn-sm btn-link"   ng-click="page($index)">详情 </button>
                         <button type="button" class="btn btn-sm btn-link"   ng-click="edit($index)">编辑 </button>
                         <button type="button" class="btn btn-sm btn-link"   ng-click="delete($index)">删除</button>
-                        <button data-href="<?=base_url()?>admin/pannel_form/form_display/{{form.form_id}}/start" class="btn btn-sm btn-link btn-pass" data-id="{{form.form_id}}"> 启用</button>
+                        <a href="<?=base_url()?>admin/pannel_form/form_display/{{form.form_id}}/start" class="btn btn-sm text-info">启用</a>
+                        <a href="<?=base_url()?>admin/pannel_form/form_display/{{form.form_id}}/stop" class="btn btn-sm text-info">停止</a>                       
+                       <!--  <button data-href="<?=base_url()?>admin/pannel_form/form_display/{{form.form_id}}/start" class="btn btn-sm btn-link btn-pass" data-id="{{form.form_id}}"> 启用</button>
 
-                         <button data-href="<?=base_url()?>admin/pannel_form/form_display/{{form.form_id}}/stop" class="btn btn-sm btn-link reject" data-id="{{form.form_id}}"> 停止</button>
+                         <button data-href="<?=base_url()?>admin/pannel_form/form_display/{{form.form_id}}/stop" class="btn btn-sm btn-link reject" data-id="{{form.form_id}}"> 停止</button> -->
                       </td>
-                      <td>
 
 
 <!--                       <button type="button" class="btn btn-primary"   ng-click="use($index)" value="启用"><div id="use">启用</div> </button>
