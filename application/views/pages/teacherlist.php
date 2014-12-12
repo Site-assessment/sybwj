@@ -46,7 +46,7 @@
             _url = $(this).attr('data-href');
 
             $.get(_url,function(data){
-                if(!data['errorCode']){
+                if(!data['errorcode']){
                     _display = '进行中';
                     $("#status_"+data['form_id']).html(_display);
                 }
@@ -62,7 +62,7 @@
             _url = $(this).attr('data-href');
 
             $.get(_url,function(data){
-                if(!data['errorCode']){
+                if(!data['errorcode']){
                     _display = '已启用';
                     $("#status_"+data['form_id']).html(_display);
                 }
