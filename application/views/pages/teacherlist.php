@@ -24,9 +24,9 @@
                       <td><button type="button" class="btn btn-sm btn-link"   ng-click="page($index)">详情 </button>
                         <button type="button" class="btn btn-sm btn-link"   ng-click="edit($index)">编辑 </button>
                         <button type="button" class="btn btn-sm btn-link"   ng-click="delete($index)">删除</button>
-                        <button data-href="<?=base_url()?>admin/pannel_form/form_display/form.form_id/start" class="btn btn-sm btn-link btn-pass" data-id="form.form_id"> 启用</button>
+                        <button data-href="<?=base_url()?>admin/pannel_form/form_display/{{form.form_id}}/start" class="btn btn-sm btn-link btn-pass" data-id="{{form.form_id}}"> 启用</button>
 
-                         <button data-href="<?=base_url()?>admin/pannel_form/form_display/form.form_id/stop" class="btn btn-sm btn-link reject" data-id="form.form_id"> 停止</button>
+                         <button data-href="<?=base_url()?>admin/pannel_form/form_display/{{form.form_id}}/stop" class="btn btn-sm btn-link reject" data-id="{{form.form_id}}"> 停止</button>
                       </td>
                       <td>
 
