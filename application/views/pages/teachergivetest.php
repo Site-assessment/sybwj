@@ -7,7 +7,7 @@
           <form role="form" ng-submit="newtest()" >
              <div class="input-group"><h2>创建试卷名字:{{testforms.form.form_name}}</h2><input class="form-control" type="text" ng-model="testforms.form.form_name" placeholder="Enter  name"></div>
              <div ng-repeat="que in testforms.form.ques track by $index">
-                <label>题目:</label><span>{{que. ques_name}}</span><button type="button" ng-click="edit($index)"  class="btn btn-primary">修改题目</button>
+                <label>题目:</label><span>{{que. ques_name}}</span><button type="button" ng-click="edit($index)"  class="btn btn-sm">修改题目</button>
                 <br /><label>选项：</label> 
                 <ol type="A" >
                   <li ng-repeat="op in que.opt  track by $index"><span>{{op.content}}</span><span ng-if="op.is_answer==1">正确答案</span></li>
@@ -27,15 +27,15 @@
         </div>   
         <div class="row">
           <div class="col-xs-12">
-            <button type="button"  class="btn btn-primary" ng-click="addChoice()"> 添加选项</button>
-            <button type="button"  class="btn btn-primary" ng-click="deleteChoice()"> 删除选项</button>
+            <button type="button"  class="btn btn-sm" ng-click="addChoice()"> 添加选项</button>
+            <button type="button"  class="btn btn-sm" ng-click="deleteChoice()"> 删除选项</button>
         </div>
     </div> 
     <div class="row">
       <div class="col-xs-12">
-        <button type="button" class="btn btn-primary" ng-click="addQuestion()"  ng-show="id==edid"    ><span ></span> 添加题目</button>
-        <button type="button" class="btn btn-primary" ng-click="editQuestion()" ng-show="id!=edid"    ><span ></span> 修改题目</button>
-        <button type="button" class="btn btn-primary" ng-click="deleteQuestion()"><span ></span> 删除题目</button>
+        <button type="button" class="btn btn-sm" ng-click="addQuestion()"  ng-show="id==edid"    ><span ></span> 添加题目</button>
+        <button type="button" class="btn btn-sm" ng-click="editQuestion()" ng-show="id!=edid"    ><span ></span> 修改题目</button>
+        <button type="button" class="btn btn-sm" ng-click="deleteQuestion()"><span ></span> 删除题目</button>
     </div>
 </div> 
 <div class="row">

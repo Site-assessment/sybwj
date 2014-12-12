@@ -4,7 +4,7 @@
         <div class="container">
           <h1>{{testform1.form.form_name}}</h1>
           <div ng-repeat="que in testforms.form.ques track by $index">
-            <p>题目:<span>{{que.ques_name}}</span><button type="button" ng-click="edit($index)">修改题目</button></p>
+            <p>题目:<span>{{que.ques_name}}</span><button type="button" class="btn btn-sm" ng-click="edit($index)">修改题目</button></p>
             <label>选项：</label> <ol type="A" >
             <li ng-repeat="opt in que.opt  track by $index"><span>{{opt.content}}</span><span ng-if="opt.is_answer == 1">正确答案</span></li>
         </ol>
@@ -27,15 +27,15 @@
   </div>   
   <div class="row">
     <div class="col-xs-12">
-      <button type="button"  ng-click="addChoice()"> 添加选项</button>
-      <button type="button"  ng-click="deleteChoice()"> 删除选项</button>
+      <button type="button"  class="btn btn-sm" ng-click="addChoice()"> 添加选项</button>
+      <button type="button" class="btn btn-sm"  ng-click="deleteChoice()"> 删除选项</button>
   </div>
 
 </div> 
 <div class="row">
     <div class="col-xs-12">
-      <button type="button"  ng-click="addQuestion()" ><span ></span> 增加题目</button>
-      <button type="button"  ng-click="deleteQuestion()" ><span ></span> 删除题目</button>
+      <button type="button class="btn btn-sm" "  ng-click="addQuestion()" ><span ></span> 增加题目</button>
+      <button type="button" class="btn btn-sm" ng-click="deleteQuestion()" ><span ></span> 删除题目</button>
   </div>
 </div>
 </div>

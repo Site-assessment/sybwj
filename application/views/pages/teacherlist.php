@@ -6,14 +6,21 @@
                       <td>标题</td>
                       <td>出题人</td>
                       <td>出题时间</td>
-                      <td>操作</td>
-                      <td>状态</td>
+                    <td>状态</td>
+                     <td>操作</td>
                     </tr> 
                     <tr   ng-repeat="form in formlist">
                       <td>{{form.form_id}}</td>
                       <td><a href="<?=site_url().'index.php/admin/pannel_form/form_info/'?>{{form.form_id}}" >{{form.form_name}}</td>
                       <td>{{form.username}}</td>
                       <td>{{form.cTime}}</td>
+                      <td id="status_{{form.form_id}}">
+
+                         <span ng-if="form.status==0">未启用</span>
+                         <span ng-if="form.status==1">进行中</span>
+                                    
+
+                      </td>
                       <td><button type="button" class="btn btn-sm btn-link"   ng-click="page($index)">详情 </button>
                         <button type="button" class="btn btn-sm btn-link"   ng-click="edit($index)">编辑 </button>
                         <button type="button" class="btn btn-sm btn-link"   ng-click="delete($index)">删除</button>
@@ -23,13 +30,7 @@
                       </td>
                       <td>
 
-                      <td id="status_{{form.form_id}}">
 
-                         <span ng-if="form.status==0">未启用</span>
-                         <span ng-if="form.status==1">进行中</span>
-                                    
-
-                      </td>
 <!--                       <button type="button" class="btn btn-primary"   ng-click="use($index)" value="启用"><div id="use">启用</div> </button>
                       </td> -->
                     </tr>
