@@ -1,52 +1,57 @@
     
 </head>
-  <body ng-app="AdministratorPlatform">
+<body ng-app="AdministratorPlatform">
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-controller="teacherGiveTestCtrl">
     <div   class="jumbotron">
-       <div class="container">
-          <form role="form" ng-submit="newtest()" >
-             <div class="input-group"><h2>创建试卷名字:{{testforms.form.form_name}}</h2><input class="form-control" type="text" ng-model="testforms.form.form_name" placeholder="Enter  name"></div>
-             <div ng-repeat="que in testforms.form.ques track by $index">
-                <label>题目:</label><span>{{que. ques_name}}</span><button type="button" ng-click="edit($index)"  class="btn btn-sm">修改题目</button>
-                <br /><label>选项：</label> 
-                <ol type="A" >
-                  <li ng-repeat="op in que.opt  track by $index"><span>{{op.content}}</span><span ng-if="op.is_answer==1">正确答案</span></li>
-              </ol>
-          </div>
-          <div >
-            <div class="form-group" >
-              <label >问题：</label>
-              <input type="text" class="form-control" ng-model="testforms.form.ques[id].ques_name"  placeholder="Enter  question">
-          </div> 
-          <div class="form-group">
-              <label>选项：</label>
-              <div ng-repeat="op in testforms.form.ques[id].opt"> 
-                <input type="text" class="form-control" ng-model="op.content" placeholder="Enter choice {{$index+1}} text">
-                <input type="radio"   name="{{testforms.form.ques[id]}}" value="1" ng-click="trueanswer($index)">答案
-            </div>
+     <div class="container">
+      <form role="form" ng-submit="newtest()" >
+       <div class="input-group"><h2>创建试卷名字:{{testforms.form.form_name}}</h2><input class="form-control" type="text" ng-model="testforms.form.form_name" placeholder="Enter  name">
+       </div>
+       <div ng-repeat="que in testforms.form.ques track by $index">
+        <label>题目:</label><span>{{que. ques_name}}</span><button type="button" ng-click="edit($index)"  class="btn btn-sm">修改题目</button>
+        <br /><label>选项：</label> 
+        <ol type="A" >
+          <li ng-repeat="op in que.opt  track by $index"><span>{{op.content}}</span><span ng-if="op.is_answer==1">正确答案</span></li>
+      </ol>
+      </div>
+      <div >
+        <div class="form-group" >
+          <label >问题：</label>
+          <input type="text" class="form-control" ng-model="testforms.form.ques[id].ques_name"  placeholder="Enter  question">
+        </div> 
+        <div class="form-group">
+          <label>选项：</label>
+          <div ng-repeat="op in testforms.form.ques[id].opt"> 
+            <input type="text" class="form-control" ng-model="op.content" placeholder="Enter choice {{$index+1}} text">
+            <input type="radio"   name="{{testforms.form.ques[id]}}" value="1" ng-click="trueanswer($index)">答案
+         </div>
         </div>   
         <div class="row">
           <div class="col-xs-12">
             <button type="button"  class="btn btn-sm" ng-click="addChoice()"> 添加选项</button>
             <button type="button"  class="btn btn-sm" ng-click="deleteChoice()"> 删除选项</button>
         </div>
-    </div> 
-    <div class="row">
-      <div class="col-xs-12">
-        <button type="button" class="btn btn-sm" ng-click="addQuestion()"  ng-show="id==edid"    ><span ></span> 添加题目</button>
-        <button type="button" class="btn btn-sm" ng-click="editQuestion()" ng-show="id!=edid"    ><span ></span> 修改题目</button>
-        <button type="button" class="btn btn-sm" ng-click="deleteQuestion()"><span ></span> 删除题目</button>
+        </div> 
+        <div class="row">
+          <div class="col-xs-12">
+            <button type="button" class="btn btn-sm" ng-click="addQuestion()"  ng-show="id==edid"    ><span ></span> 添加题目</button>
+            <button type="button" class="btn btn-sm" ng-click="editQuestion()" ng-show="id!=edid"    ><span ></span> 修改题目</button>
+            <button type="button" class="btn btn-sm" ng-click="deleteQuestion()"><span ></span> 删除题目</button>
+        </div>
+        </div> 
+
+        <p><hr></p>
+
+
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="submit"><button  type="submit" class="btn btn-sm submit" ng-submit="newtest()" >提交</button></div>
+          </div>
+        </div>
+       </div>
+    </form>
+
     </div>
-</div> 
-<div class="row">
-  <div class="col-xs-6">
-    <div class="submit"><button  type="submit" class="btn btn-sm submit" ng-submit="newtest()" >提交 &raquo;</button></div>
-</div>
-</div>
-</div>
-</div>
-</form>
-</div>
 </div>
 </div>
 <script type="text/javascript">

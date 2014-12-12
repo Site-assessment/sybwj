@@ -34,7 +34,7 @@
 </div> 
 <div class="row">
     <div class="col-xs-12">
-      <button type="button class="btn btn-sm" "  ng-click="addQuestion()" ><span ></span> 增加题目</button>
+      <button type="button" class="btn btn-sm"  ng-click="addQuestion()" ><span ></span> 增加题目</button>
       <button type="button" class="btn btn-sm" ng-click="deleteQuestion()" ><span ></span> 删除题目</button>
   </div>
 </div>
