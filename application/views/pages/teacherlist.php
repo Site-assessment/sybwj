@@ -2,7 +2,7 @@
             <!-- 问卷列表 -->
           <table class="table table-striped">
                     <tr class="success">
-                      <td>序号</td>
+                      <td>form_list</td>
                       <td>标题</td>
                       <td>出题人</td>
                       <td>出题时间</td>
