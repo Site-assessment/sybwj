@@ -17,7 +17,7 @@
                       <td>{{userinfo.realname}}</td>
                       <td>{{form.cTime}}</td>
                       <td>{{form.grade}}</td>
-                      <td><button type="button" class="btn btn-primary"   ng-click="page($index)">详情 </button>
+                      <td><button type="button" class="btn btn-sm"   ng-click="page($index)">详情 </button>
                       </td>
                     </tr>
                 </table>

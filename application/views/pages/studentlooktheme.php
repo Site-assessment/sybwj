@@ -15,7 +15,7 @@
                       <td>{{form.form_name}}</td>
                       <td>{{form.username}}</td>
                       <td>{{form.cTime}}</td>
-                      <td><button type="button" class="btn btn-primary"   ng-click="page($index)">答题 </button>
+                      <td><button type="button" class="btn btn-sm"   ng-click="page($index)">答题 </button>
                       </td>
                     </tr>
                 </table>
