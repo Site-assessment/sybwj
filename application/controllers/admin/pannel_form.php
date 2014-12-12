@@ -240,22 +240,24 @@ class pannel_form extends MY_Controller {
      * @link http://www.flappyant.com/sybwj/admin/pannel_form/form_display
      * @abstract 操作 --启用/结束测试(js)
      */
-    function form_display($form_id){
+    function form_display($form_id,$display){
 
-    	$res = $this->form->form_display($form_id);
+    	$res = $this->form->form_display($form_id,$display);
 
     	if ($res) {
     		# code...
     		$data = array(
                 'errorcode' => 0,
                 'message'   => 'ok',
+                'form_id'   =>$form_id,
     			);
     		echo json_encode($data);
     	}else{
     		$data = array(
                 'errorcode' => 1,
                 'message'   => 'fail',
-    			);
+                 'form_id'   =>$form_id,
+   			);
     		echo json_encode($data);
     	}
 

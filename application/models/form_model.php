@@ -203,16 +203,17 @@ class form_model extends CI_Model{
      *  @return boolean
      *  @abstract 改变问卷表单状态处理方法 
      */
-    function form_display($form_id){
+    function form_display($form_id,$display){
 
         $where = array('form_id'=>$form_id);
         $form_ob = $this->db->get_where('form',$where)->row_array();
 
         $status = 0;
-        if ($form_ob['status'] == 0) {
+
+        if ($display == 'start') {
             # code...
             $status = 1;
-        }else{
+        }elseif($display == 'stop'){
             $status = 0;
         }
 
