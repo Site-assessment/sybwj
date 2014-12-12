@@ -14,13 +14,24 @@
                       <td><a href="<?=site_url().'index.php/admin/pannel_form/form_info/'?>{{form.form_id}}" >{{form.form_name}}</td>
                       <td>{{form.username}}</td>
                       <td>{{form.cTime}}</td>
-                      <td><button type="button" class="btn btn-primary"   ng-click="page($index)">详情 </button>
-                        <button type="button" class="btn btn-primary"   ng-click="edit($index)">编辑 </button>
-                        <button type="button" class="btn btn-primary"   ng-click="delete($index)">删除</button>
+                      <td><button type="button" class="btn btn-sm"   ng-click="page($index)">详情 </button>
+                        <button type="button" class="btn btn-sm"   ng-click="edit($index)">编辑 </button>
+                        <button type="button" class="btn btn-sm"   ng-click="delete($index)">删除</button>
+                        <button data-href="#" class="btn btn-sm btn-link btn-pass" data-id="form.form_id"> 通过</button>
+
+                         <button data-href="#" class="btn btn-sm btn-link reject" data-id="form.form_id"> 拒绝</button>
                       </td>
                       <td>
-                      <button type="button" class="btn btn-primary"   ng-click="use($index)" value="启用"><div id="use">启用</div> </button>
+
+                      <td id="status_{{form.form_id}}">
+
+                         <span ng-if="form.status==0">未启用
+                         <span ng-if="form.status==1">进行中
+                                    
+
                       </td>
+<!--                       <button type="button" class="btn btn-primary"   ng-click="use($index)" value="启用"><div id="use">启用</div> </button>
+                      </td> -->
                     </tr>
                 </table>
 </div>
