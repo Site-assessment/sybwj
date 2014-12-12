@@ -45,7 +45,7 @@
     <div class="col-xs-6">
     </div>
     <div class="col-xs-6">
-      <button  type="submit" ng-submit="editTest()" >提交</button>
+      <button  type="submit" class="btn btn-sm submit" ng-submit="editTest()" >提交</button>
   </div>
 </div>
 

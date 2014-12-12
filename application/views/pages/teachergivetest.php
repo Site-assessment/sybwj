@@ -40,7 +40,7 @@
 </div> 
 <div class="row">
   <div class="col-xs-6">
-    <div class="submit"><button  type="submit" class="btn btn-primary submit" ng-submit="newtest()" >提交 &raquo;</button></div>
+    <div class="submit"><button  type="submit" class="btn btn-sm submit" ng-submit="newtest()" >提交 &raquo;</button></div>
 </div>
 </div>
 </div>
