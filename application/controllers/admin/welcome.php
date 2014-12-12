@@ -160,6 +160,19 @@ class Welcome extends MY_Controller {
 
 	}
 
+	/**
+	 * @abstract 注销
+	 * @link http://www.flappyant.com/sybwj/admin/welcome/logout
+	 */
+	function logout(){
+
+        if (isset($_SESSION['user'])) {
+		   unset($_SESSION['user']);
+        }
+        //跳转到登陆界面
+        $this->boss_login();
+	}
+
 
 
 	/**
