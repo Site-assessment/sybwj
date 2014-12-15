@@ -163,6 +163,7 @@ body {
 #welcome .testname{
   padding: 15px;
   margin-bottom: 20px;
+  margin-left: 10px;
   border: 1px solid transparent;
   border-radius: 4px;
   color: #31708f;
@@ -175,6 +176,6 @@ body {
   font-size: 20px;
 } 
 #welcome .submit{
- margin: 0 0 0 85%;
+ margin: 0 0 50% 50%;
 }
 
