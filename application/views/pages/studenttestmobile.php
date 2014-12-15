@@ -21,7 +21,7 @@
       </div>
     </div>
 
-<p><hr></p>
+    <h1 class="page-header"></h1>
 </div>
 
 <div class="col-xs-12"> 
