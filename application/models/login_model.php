@@ -112,6 +112,8 @@ class login_model extends CI_Model{
 				 	return "unexists";
 
 			 }
+         }else{
+         	return "no_state";
          }
 		 // $post = array_merge($post,array('state'=>1));
 		 

@@ -49,6 +49,9 @@ AdministratorPlatform.factory('requestService', ['$http', '$rootScope', '$locati
             }else if(successInfo.errorcode==2){
                 alert("用户名或密码错误!");
 
+            }else if(successInfo.errorcode==3){
+                alert("您还未选择身份!");
+
             }
            console.log(successInfo);
         }).error(function (errorInfo) {

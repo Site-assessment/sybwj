@@ -113,6 +113,14 @@ class Welcome extends MY_Controller {
 					echo json_encode($data);
 
 
+				}elseif ($res == 'no_state') {
+	                //选择身份
+	                $data = array(
+						'errorcode' => 3,
+						'message'   => 'no state',
+						// 'userinfo'  =>  $_SESSION['user'],
+						);
+					echo json_encode($data);					# code...
 				}
 			}else{//登陆页面（get）
 
