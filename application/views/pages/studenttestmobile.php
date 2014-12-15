@@ -1,32 +1,32 @@
 
-  <div id="welcome"  ng-controller="studentTestCtrl">
+<div id="welcome"  ng-controller="studentTestCtrl">
   	   <!-- <div>
                   <div class="testname">
                       <p>{{testform.form.form_name}}</p>
                   </div>
               </div> -->
 
-<div class = "question" ng-repeat="que in testform.form.ques track by $index">
-    <div ng-model="id" ng-init='id = $index'>
+    <div class = "question" ng-repeat="que in testform.form.ques track by $index">
+        <div ng-model="id" ng-init='id = $index'>
 
-      <div class="col-xs-12 title-color">
-       题目{{id+1}}:{{que.ques_name}}
-      </div>
-      <div class="col-xs-12">
-      <!-- <ul> -->
-        <div class="test" ng-repeat="op in que.opt  track by $index">
-          <input type="radio"  ng-model="op.stu_answer"  name="{{que.ques_name}}" value=" {{$index+1}}"  ng-click="trueanswer(id,$index)">{{op.content}}</li>
-      <!-- </ul> -->
+          <div class="col-xs-12 title-color">
+           题目{{id+1}}:{{que.ques_name}}
+          </div>
+          <div class="col-xs-12">
+          <!-- <ul> -->
+            <div class="test" ng-repeat="op in que.opt  track by $index">
+              <input type="radio"  ng-model="op.stu_answer"  name="{{que.ques_name}}" value=" {{$index+1}}"  ng-click="trueanswer(id,$index)">{{op.content}}
+          <!-- </ul> -->
+            </div>
+          </div>
         </div>
-      </div>
+
+        <div><h1 class="page-header"></h1></div>
     </div>
 
-    <h1 class="page-header"></h1>
-</div>
-
-<div class="col-xs-12"> 
-<input  class="btn btn-info col-xs-12" type="submit" ng-click="postStudentTestMobile()" value="提交">
-</div>
+    <div class="col-xs-12"> 
+    <input  class="btn btn-info col-xs-12" type="submit" ng-click="postStudentTestMobile()" value="提交">
+    </div>
 
 </div>
 <script type="text/javascript">
