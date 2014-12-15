@@ -3,6 +3,11 @@
   padding-bottom: 40px;
   background-color: #eee;
 }
+.center-signin{
+  width: 100%;
+  text-align: center;
+
+}
 
 .form-signin {
   max-width: 330px;

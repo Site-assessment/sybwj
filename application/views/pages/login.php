@@ -37,9 +37,9 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
     </nav><!--top bar end-->
-    <div  ng-controller="loginCtrl">
-      <form  style="width:100%;text-align:center" class="form-signin" role="form" ng-submit = "login()">
-            <h2 class="form-signin-heading">Please sign in</h2>
+    <div  ng-controller="loginCtrl" class="center-signin">
+      <form   class="form-signin" role="form" ng-submit = "login()">
+            <h2 class="form-signin-heading">请先登录</h2>
             <input type="username" class="form-control" placeholder="Username" ng-model = "userName" required autofocus  >
             <input type="password" class="form-control" placeholder="Password"  ng-model = "password" required > 
             <!-- <a href="#">forget the password</a> -->
