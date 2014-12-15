@@ -236,7 +236,7 @@ class answer extends MY_Controller {
 	function answered_list_mobile($user_id = 0){
 
         //获取该学生已答过的列表
-		$answerd_list = $this->answer->get_answered_list($user_id);
+		$answered_list = $this->answer->get_answered_list($user_id);
 
 		$data = array(
 			// 'title'=>'已答过',

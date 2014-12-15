@@ -118,9 +118,12 @@ class answer_model extends CI_Model{
 			$form_ob = $this->db->get_where('form',$where)->row_array();
 			if($form_ob){
 				$answered_list[$key]['form_name'] = $form_ob['form_name'];
+				$answered_list[$key]['form_realname'] = $form_ob['username'];
 			
 			}else{
 				$answered_list[$key]['form_name'] ='该测试已删除!';
+				$answered_list[$key]['form_realname'] = $form_ob['username'];
+
 
 			}
 		}
