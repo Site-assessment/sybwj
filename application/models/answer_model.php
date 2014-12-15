@@ -139,12 +139,17 @@ class answer_model extends CI_Model{
 		foreach ($answered_list as $key => $value) {
 
 			$where =array('form_id'=>$value['form_id']);
+			// $where_user = array('user_id'=>$value['user_id']);
+
 			$form_ob = $this->db->get_where('form',$where)->row_array();
+			$userinfo = $this->get_userinfo($value['user_id']);
 			if($form_ob){
 				$answered_list[$key]['form_name'] = $form_ob['form_name'];
+				$answered_list[$key]['realname'] = $userinfo['realname'];
 			
 			}else{
 				$answered_list[$key]['form_name'] ='该测试已删除!';
+				$answered_list[$key]['realname'] = $userinfo['realname'];
 
 			}
 		}

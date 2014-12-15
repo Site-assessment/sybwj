@@ -127,12 +127,12 @@ class pannel_form extends MY_Controller {
 		$data = array(
 			// 'title'        => '已答过',
 			'answered_list'=> json_encode($answered_list),
-			'userinfo'     => json_encode($_SESSION['user']),
+			// 'userinfo'     => json_encode($_SESSION['user']),
 			);
 
 		//加载页面
 	    $this->load->view('pages/indexheader');
-        $this->load->view('pages/studenthistory',$data);
+        $this->load->view('pages/student_history_all',$data);
 	}
     /**
      *@abstract 表单详情页面  
