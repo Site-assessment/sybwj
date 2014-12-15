@@ -19,11 +19,12 @@
 </ul>
 </div>
 </div>
-<div class="col-xs-12"> 
-<input  class="btn btn-info col-xs-12" type="submit" ng-click="postStudentTestMobile()" value="提交">
-</div>
+
 
 </div>
+
+<div class="col-xs-12"> 
+<input  class="btn btn-info col-xs-12" type="submit" ng-click="postStudentTestMobile()" value="提交">
 </div>
 
 </div>
