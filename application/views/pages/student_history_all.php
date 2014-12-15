@@ -11,7 +11,7 @@
                       
                     </tr> 
                     <tr   ng-repeat="form in tests">
-                      <td>{{form.form_id}}</td>
+                      <td>{{form.answer_group_id}}</td>
                       <!-- <a href="<?=site_url().'index.php/user/answer/answer_in/'?>{{form.form_id}}" > -->
                       <td>{{form.form_name}}</td>
                       <td>{{form.realname}}</td>
@@ -27,7 +27,7 @@ AdministratorPlatform.controller('studentHistoryCtrl', ['$rootScope', '$scope', 
    $scope.tests=<?=$answered_list?>;
    console.log($scope.tests);
    $scope.page=function($index){
-     window.location.href="<?=site_url().'index.php/user/answer/answered_info/'?>"+$scope.tests[$index].answer_group_id+'/'+$scope.tests[$index].form_id+'/'+$scope.userinfo.user_id;
+     window.location.href="<?=site_url().'index.php/user/answer/answered_info/'?>"+$scope.tests[$index].answer_group_id+'/'+$scope.tests[$index].form_id+'/'+$scope.tests[$index].user_id;
   }
   }])
 </script>
