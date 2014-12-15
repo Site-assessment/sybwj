@@ -189,7 +189,7 @@ class answer extends MY_Controller {
 			$data = array(
 				// 'title'       =>'答题',
 				'test_content'=>json_encode($test_content),
-				'userinfo'    =>$userinfo,
+				'userinfo'    =>json_encode($userinfo),
 				);
 
 			//加载页面
