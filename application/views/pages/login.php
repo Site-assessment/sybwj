@@ -40,7 +40,7 @@
     <div  ng-controller="loginCtrl">
       <form   class="form-signin" role="form" ng-submit = "login()">
             <div class="col-md-2 col-md-offset-5">
-              <h4 class="form-signin-heading">login</h4>
+              <h4>login</h4>
             </div>
             <input type="username" class="form-control" placeholder="Username" ng-model = "userName" required autofocus  >
             <input type="password" class="form-control" placeholder="Password"  ng-model = "password" required > 
