@@ -8,13 +8,16 @@
 
 <div class = "question" ng-repeat="que in testform.form.ques track by $index">
     <div ng-model="id" ng-init='id = $index'>
+
+<div class="col-xs-10 col-xs-1">
 <p>题目:<span>{{que.ques_name}}</span></p>
+</div>
 <ul>
   <li class="test" ng-repeat="op in que.opt  track by $index">
 <input type="radio"  ng-model="op.stu_answer"  name="{{que.ques_name}}" value=" {{$index+1}}"  ng-click="trueanswer(id,$index)">{{op.content}}</li>
 </ul>
 </div>
-<div class="col-xs-10 col-xs-offset-1"> 
+<div class="col-xs-12"> 
 <input  class="btn btn-info col-xs-12" type="submit" ng-click="postStudentTestMobile()" value="提交">
 </div>
 
