@@ -192,7 +192,7 @@ var postStudentTest = function($scope){
                  if(successInfo.errorcode==0)
                 // window.location.href=domain+'user/answer/answered_list'; 
 
-                window.location.href=location.href;
+                // window.location.href=location.href;
             }).error(function (errorInfo) {
                 console.log('error');
                 console.log(errorInfo);
