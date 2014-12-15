@@ -38,15 +38,15 @@
     </div><!-- /.container-fluid -->
     </nav><!--top bar end-->
     <div  ng-controller="loginCtrl">
-      <form class="form-signin" role="form" ng-submit = "login()">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <input type="username" class="form-control" placeholder="Username" ng-model = "userName" required autofocus  >
-        <input type="password" class="form-control" placeholder="Password"  ng-model = "password" required > 
-        <a href="#">forget the password</a>
-        <div class = "state1" ng-repeat="value in vm.values"><input type="radio" name="state" ng-model="vm.selection" ng-value="value"  ng-checked="vm.selection.state == value.state"/>{{value.statetext}}</div>
-        </br>
-       <p ng-show = "loginError">用户名或密码错误</p>
-        <button class="btn btn-lg btn-primary btn-block" type="submit"  >Sign in</button>
+      <form  style="width:100%;text-align:center" class="form-signin" role="form" ng-submit = "login()">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <input type="username" class="form-control" placeholder="Username" ng-model = "userName" required autofocus  >
+            <input type="password" class="form-control" placeholder="Password"  ng-model = "password" required > 
+            <!-- <a href="#">forget the password</a> -->
+            <div class = "state1" ng-repeat="value in vm.values"><input type="radio" name="state" ng-model="vm.selection" ng-value="value"  ng-checked="vm.selection.state == value.state"/>{{value.statetext}}</div>
+            </br>
+           <!-- <p ng-show = "loginError">用户名或密码错误</p>
+            <button class="btn btn-lg btn-primary btn-block" type="submit"  >Sign in</button> -->
       </form>
     </div> <!-- /container -->
   <script language="JavaScript">
