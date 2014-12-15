@@ -14,7 +14,10 @@
 <input type="radio"  ng-model="op.stu_answer"  name="{{que.ques_name}}" value=" {{$index+1}}"  ng-click="trueanswer(id,$index)">{{op.content}}</li>
 </ul>
 </div>
-<input  class="big" type="submit" ng-click="postStudentTestMobile()" value="提交">
+<div class="col-md-8 col-md-offset-2"> 
+<input  class="btn btn-info" type="submit" ng-click="postStudentTestMobile()" value="提交">
+</div>
+
 </div>
 </div>
 
