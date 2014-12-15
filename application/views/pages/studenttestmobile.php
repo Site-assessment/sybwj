@@ -19,9 +19,10 @@
           <!-- </ul> -->
             </div>
           </div>
+          <hr />
         </div>
 
-        <div><h1 class="page-header-my"></h1></div>
+        
     </div>
 
     <div class="col-xs-12"> 
