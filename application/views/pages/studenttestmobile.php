@@ -8,7 +8,6 @@
 
     <div class = "question" ng-repeat="que in testform.form.ques track by $index">
           <div ng-model="id" ng-init='id = $index'></div>
-          <h1 class="page-header"></h1>
           <div class="col-xs-12 title-color">
            题目{{id+1}}:{{que.ques_name}}
           </div>
@@ -19,6 +18,7 @@
           <!-- </ul> -->
             </div>
           </div>
+          <div class="col-xs-12">----------------------------------------------</div>
         
     </div>
 
