@@ -50,7 +50,11 @@
 
 .state1{
   float: left;
+  padding-left: 20px;
 }
+
+
+
 .menu {
   position:fixed;
   top: 51px;
