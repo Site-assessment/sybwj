@@ -14,7 +14,7 @@
 <input type="radio"  ng-model="op.stu_answer"  name="{{que.ques_name}}" value=" {{$index+1}}"  ng-click="trueanswer(id,$index)">{{op.content}}</li>
 </ul>
 </div>
-<div class = "submit"> <input  type="submit" ng-click="postStudentTest()" value="提交"></div>
+<div class = "submit"> <input  type="submit" ng-click="postStudentTestMobile()" value="提交"></div>
 </div>
 </div>
 <script type="text/javascript">
@@ -40,7 +40,7 @@ console.log($scope.grades);
       $scope.grades.answer[id].opt_id= $scope.testform.form.ques[id].opt[$index].opt_id;
       $scope.grades.answer[id].opt_content= $scope.testform.form.ques[id].opt[$index].content;
   }
-$scope.postStudentTest = function () {
+$scope.postStudentTestMobile = function () {
       var answer=0;
       var stu=0;
       $scope.grades.grade=100%($scope.testform.form.ques.length);
@@ -66,7 +66,7 @@ $scope.postStudentTest = function () {
       if($scope.success==false)
          alert("有题目没答完");
       if($scope.success==true)
-       { requestService.postStudentTest($scope);
+       { requestService.postStudentTestMobile($scope);
         alert("题目答完,分数为"+$scope.grades.grade);}
     };
 }])
