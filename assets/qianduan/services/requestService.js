@@ -180,6 +180,22 @@ var postStudentTest = function($scope){
             console.log(errorInfo);
         });
 }
+
+//发送学生完成的测试
+var postStudentTestMobile = function($scope){
+    var grades=$scope.grades;
+    $http({
+            method:'POST',
+            url:domain+'user/answer/answer_in/'+$scope.testform.form_id,
+            data:grades
+        }).success(function (successInfo) {
+             if(successInfo.errorcode==0)
+            window.location.href=domain+'user/answer/answer_in/'+$scope.testform.form_id; 
+        }).error(function (errorInfo) {
+            console.log('error');
+            console.log(errorInfo);
+        });
+}
 //登出
     var logout = function ($scope) {
         $rootScope.administrator = null;

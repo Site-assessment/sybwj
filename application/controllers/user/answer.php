@@ -194,7 +194,7 @@ class answer extends MY_Controller {
 
 			//加载页面
 			$this->load->view('pages/indexheader',$data);
-            $this->load->view('pages/studenttest');
+            $this->load->view('pages/studenttestmobile');
 			// echo json_encode($data);
 		}
 
