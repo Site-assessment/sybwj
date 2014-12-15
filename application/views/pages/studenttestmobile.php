@@ -9,10 +9,10 @@
 <div class = "question" ng-repeat="que in testform.form.ques track by $index">
     <div ng-model="id" ng-init='id = $index'>
 
-<div class="col-xs-10 col-xs-1">
+<div class="col-xs-10 col-xs-offset-1">
 <p>题目:<span>{{que.ques_name}}</span></p>
 </div>
-<div class="col-xs-8 col-xs-2">
+<div class="col-xs-8 col-xs-offset-2">
 <ul>
   <li class="test" ng-repeat="op in que.opt  track by $index">
 <input type="radio"  ng-model="op.stu_answer"  name="{{que.ques_name}}" value=" {{$index+1}}"  ng-click="trueanswer(id,$index)">{{op.content}}</li>
