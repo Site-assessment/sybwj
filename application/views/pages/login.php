@@ -39,7 +39,9 @@
     </nav><!--top bar end-->
     <div  ng-controller="loginCtrl">
       <form   class="form-signin" role="form" ng-submit = "login()">
-            <h4 class="form-signin-heading">login</h4>
+            <div class="col-md-6 col-md-offset-3">
+              <h4 class="form-signin-heading">login</h4>
+            </div>
             <input type="username" class="form-control" placeholder="Username" ng-model = "userName" required autofocus  >
             <input type="password" class="form-control" placeholder="Password"  ng-model = "password" required > 
             <!-- <a href="#">forget the password</a> -->
