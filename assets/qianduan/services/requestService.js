@@ -21,9 +21,12 @@ AdministratorPlatform.factory('requestService', ['$http', '$rootScope', '$locati
     };
 //    登陆
  var login = function ($scope) {
-        var state = '';
+        // var state = '';
         var userName = $scope.userName;
         var password = $scope.password;
+        if ($scope.vm.selection.state == null) {
+            $scope.vm.selection.state == '';
+        };
         var state=$scope.vm.selection.state;
         var loginMessage = {
             username:userName,
