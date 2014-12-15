@@ -1,13 +1,13 @@
 <link rel=" stylesheet" type="text/css" href="<?php echo base_url();?>assets/qianduan/components/signin.css">
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+        <!-- <div class="container">
       <a class="navbar-brand" href="#">Question System</a>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Register</a></li>
         <li><a href="#">Log in</a></li>
       </ul>
       
-        </div>
+        </div> -->
   </div>
     <div class="container" ng-controller="loginCtrl">
       <form class="form-signin" role="form" ng-submit = "login()">
