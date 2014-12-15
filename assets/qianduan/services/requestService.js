@@ -189,7 +189,7 @@ var postStudentTest = function($scope){
                 url:domain+'user/answer/answer_in/'+$scope.testform.form_id,
                 data:grades
             }).success(function (successInfo) {
-                 if(successInfo.errorcode==0)
+                 // if(successInfo.errorcode==0)
                 // window.location.href=domain+'user/answer/answered_list'; 
 
                 // window.location.href=location.href;
