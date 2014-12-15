@@ -12,10 +12,12 @@
 <div class="col-xs-10 col-xs-1">
 <p>题目:<span>{{que.ques_name}}</span></p>
 </div>
+<div class="col-xs-8 col-xs-2">
 <ul>
   <li class="test" ng-repeat="op in que.opt  track by $index">
 <input type="radio"  ng-model="op.stu_answer"  name="{{que.ques_name}}" value=" {{$index+1}}"  ng-click="trueanswer(id,$index)">{{op.content}}</li>
 </ul>
+</div>
 </div>
 <div class="col-xs-12"> 
 <input  class="btn btn-info col-xs-12" type="submit" ng-click="postStudentTestMobile()" value="提交">
