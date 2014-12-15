@@ -1,5 +1,5 @@
 
-  <div id="welcome"  ng-controller="studentTestCtrl">
+  <div id="welcome" class="main" ng-controller="studentTestCtrl">
   	<div class="row placeholders">
                   <div class="testname">
                       <p>{{testform.form.form_name}}</p>
