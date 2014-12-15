@@ -21,7 +21,7 @@
       </div>
     </div>
 
-<hr>
+<p><hr></p>
 </div>
 
 <div class="col-xs-12"> 
