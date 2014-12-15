@@ -8,7 +8,6 @@
 
 <div class = "question" ng-repeat="que in testform.form.ques track by $index">
     <div ng-model="id" ng-init='id = $index'>
-	<!-- <h1 class="page-header"></h1> -->
 <p>题目:<span>{{que.ques_name}}</span></p>
 <ul>
   <li class="test" ng-repeat="op in que.opt  track by $index">
