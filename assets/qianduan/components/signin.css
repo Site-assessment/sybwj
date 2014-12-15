@@ -15,8 +15,8 @@
   margin: 0 auto;
 }
 .form-signin .form-signin-heading{
-  text-align: center;
-  padding-left: 50px;
+    margin: 0 auto;
+
 }
 .form-signin .checkbox {
   margin-bottom: 10px;
