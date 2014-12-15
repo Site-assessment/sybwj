@@ -1,10 +1,11 @@
 
   <div id="welcome"  ng-controller="studentTestCtrl">
-  	   <div>
+  	   <!-- <div>
                   <div class="testname">
                       <p>{{testform.form.form_name}}</p>
                   </div>
-              </div>
+              </div> -->
+              
 <div class = "question" ng-repeat="que in testform.form.ques track by $index">
     <div ng-model="id" ng-init='id = $index'></div>
 	<h1 class="page-header"></h1>
