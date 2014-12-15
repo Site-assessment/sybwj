@@ -127,7 +127,7 @@ var editTest = function ($scope) {
         var testform=$scope.testforms;
         $http({
             method:'post',
-            url:domain+'admin/pannel_form/form_edit'+$scope.testforms.form_id,
+            url:domain+'admin/pannel_form/form_edit/'+$scope.testforms.form_id,
             data:testform
         }).success(function (successInfo) {
              if(successInfo.errorcode==0)
@@ -190,9 +190,9 @@ var postStudentTest = function($scope){
                 data:grades
             }).success(function (successInfo) {
                  if(successInfo.errorcode==0)
-                window.location.href=domain+'user/answer/answered_list'; 
+                // window.location.href=domain+'user/answer/answered_list'; 
 
-                // window.location.href=domain+'user/answer/answer_in/'+$scope.testform.form_id; 
+                window.location.href=domain+'user/answer/answer_in/'+$scope.testform.form_id; 
             }).error(function (errorInfo) {
                 console.log('error');
                 console.log(errorInfo);
@@ -226,6 +226,7 @@ var postStudentTest = function($scope){
         paginationInit:paginationInit,
         postStudentTest:postStudentTest,
         testforms:testforms,
-        deleteTest:deleteTest
+        deleteTest:deleteTest,
+        postStudentTestMobile:postStudentTestMobile
     }   
 }])

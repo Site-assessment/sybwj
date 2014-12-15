@@ -5,9 +5,9 @@
                       <p>{{testform.form.form_name}}</p>
                   </div>
               </div> -->
-              
+
 <div class = "question" ng-repeat="que in testform.form.ques track by $index">
-    <div ng-model="id" ng-init='id = $index'></div>
+    <div ng-model="id" ng-init='id = $index'>
 	<h1 class="page-header"></h1>
 <p>题目:<span>{{que.ques_name}}</span></p>
 <ul>
@@ -17,6 +17,8 @@
 </div>
 <div class = "submit"> <input  type="submit" ng-click="postStudentTestMobile()" value="提交"></div>
 </div>
+</div>
+
 </div>
 <script type="text/javascript">
 AdministratorPlatform.controller('studentTestCtrl', ['$location','$http','$rootScope', '$scope', 'requestService', function ($location,$http,$rootScope, $scope, requestService) { 
