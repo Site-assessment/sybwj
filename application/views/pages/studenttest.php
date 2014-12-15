@@ -14,7 +14,7 @@
 <input type="radio"  ng-model="op.stu_answer"  name="{{que.ques_name}}" value=" {{$index+1}}"  ng-click="trueanswer(id,$index)">{{op.content}}</li>
 </ul>
 </div>
-<div class = "submit"> <input  type="submit" ng-click="postStudentTest()" value="提交"></div>
+<div class = "submit"> <input  class="btn btn-info" type="submit" ng-click="postStudentTest()" value="提交"></div>
 </div>
 </div>
 <script type="text/javascript">
