@@ -176,6 +176,10 @@ body {
   font-size: 20px;
 } 
 #welcome .submit{
- margin: 0 0 50% 50%;
+ margin: 0 5% 0 5%;
+}
+
+.big{
+  width: 100%;
 }
 
