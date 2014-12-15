@@ -66,7 +66,7 @@ $scope.postStudentTest = function () {
       if($scope.success==false)
          alert("有题目没答完");
       if($scope.success==true)
-       { requestService.postStudentTestMobile($scope);
+       { requestService.postStudentTest($scope);
         alert("题目答完,分数为"+$scope.grades.grade);}
     };
 }])
