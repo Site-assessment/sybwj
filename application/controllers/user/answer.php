@@ -150,9 +150,9 @@ class answer extends MY_Controller {
 	 * @abstract 答题页面/保存答案(mobile)--移动端接口--webView显示PC端的页面
 	 * @link http://www.flappyant.com/sybwj/user/answer/answer_in_mobile/(?form_id[GET])
 	 */
-	function answer_in_mobile($form_id = 0){
+	function answer_in_mobile($form_id = 0,$user_id = 0){
 
-          $post = $this->input->post(NULL,TRUE);
+		$post = json_decode(file_get_contents('php://input'),true);
 
 		if ($post) {
 
@@ -182,18 +182,20 @@ class answer extends MY_Controller {
 			}
 			
 		}else{
-			//返回测试问卷数据
+			//获取测试内容 array()
 			$test_content = $this->answer->get_test_content($form_id);
-
-			$data = array(
-				'errorcode'    => 0,
-	            'message'      => 'ok',
-
-	         	'test_content' => $test_content,
-            );
+			$userinfo = $this->answer->get_userinfo($user_id);
             
-            //返回json数据
-            echo json_encode($data);
+			$data = array(
+				// 'title'       =>'答题',
+				'test_content'=>json_encode($test_content),
+				'userinfo'    =>$userinfo,
+				);
+
+			//加载页面
+			$this->load->view('pages/indexheader',$data);
+            $this->load->view('pages/studenttest');
+			// echo json_encode($data);
 		}
 
         

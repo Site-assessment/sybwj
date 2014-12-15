@@ -10,6 +10,16 @@ class answer_model extends CI_Model{
 	}
 
 	/**
+	 * @abstract 获取用户信息
+	 */
+	function get_userinfo($user_id){
+
+		$userinfo = $this->db->get_where('user',array('user_id'=>$user_id))->row_array();
+		return $userinfo;
+
+	}
+
+	/**
 	 * @abstract 学生端获取测试列表
 	 */
 	function get_test_list(){
