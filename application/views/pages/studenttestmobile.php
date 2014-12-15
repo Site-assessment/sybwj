@@ -10,7 +10,7 @@
     <div ng-model="id" ng-init='id = $index'>
 
 <div class="col-xs-12">
-<p>题目:<span>{{que.ques_name}}</span></p>
+<p>题目{{id+1}}:<span>{{que.ques_name}}</span></p>
 </div>
 <div class="col-xs-12">
 <ul>
@@ -20,7 +20,7 @@
 </div>
 </div>
 
-
+<hr>
 </div>
 
 <div class="col-xs-12"> 
