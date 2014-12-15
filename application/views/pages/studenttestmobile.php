@@ -10,13 +10,14 @@
     <div ng-model="id" ng-init='id = $index'>
 
       <div class="col-xs-12 title-color">
-      <p>题目{{id+1}}:<span>{{que.ques_name}}</span></p>
+       题目{{id+1}}:{{que.ques_name}}
       </div>
       <div class="col-xs-12">
-      <ul>
-        <li class="test" ng-repeat="op in que.opt  track by $index">
-      <input type="radio"  ng-model="op.stu_answer"  name="{{que.ques_name}}" value=" {{$index+1}}"  ng-click="trueanswer(id,$index)">{{op.content}}</li>
-      </ul>
+      <!-- <ul> -->
+        <div class="test" ng-repeat="op in que.opt  track by $index">
+          <input type="radio"  ng-model="op.stu_answer"  name="{{que.ques_name}}" value=" {{$index+1}}"  ng-click="trueanswer(id,$index)">{{op.content}}</li>
+      <!-- </ul> -->
+        </div>
       </div>
     </div>
 
