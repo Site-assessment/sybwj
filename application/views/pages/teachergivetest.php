@@ -1,7 +1,7 @@
     
 </head>
 <body ng-app="AdministratorPlatform">
-  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-controller="teacherGiveTestCtrl">
+  <div  ng-controller="teacherGiveTestCtrl">
     <div   class="jumbotron">
      <div class="container">
       <form role="form" ng-submit="newtest()" >
