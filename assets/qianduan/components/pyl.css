@@ -156,9 +156,13 @@ body {
 
 /*another type to express*/
 
+.title-color{
+  background-color: #E6E8EA;
+}
+
 #welcome p{
   font-family: LiSu;
-  font-size: 25px;
+  font-size: 20px;
 }
 #welcome .testname{
   padding: 15px;
