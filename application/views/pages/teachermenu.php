@@ -87,7 +87,7 @@
                                           </a>
                                       </li>
                                        <li>
-                                          <a class="ajax-link" href="<?php echo site_url('index.php/admin/pannel_form/form_list');?>" target="main-content">
+                                          <a class="ajax-link" href="<?php echo site_url('index.php/admin/pannel_form/student_answered_list');?>" target="main-content">
                                               <i class="glyphicon glyphicon-list"></i><span>查看情况</span>
                                           </a>
                                       </li>

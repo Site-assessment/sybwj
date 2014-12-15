@@ -128,6 +128,30 @@ class answer_model extends CI_Model{
 		return $answered_list;
 
 	}
+	/**
+	 * @abstract 获取学生已答过测试列表
+	 */
+	function get_answered_list_all(){
+
+        //获取答过测试列表
+		$answered_list = $this->db->get('answer')->result_array();
+
+		foreach ($answered_list as $key => $value) {
+
+			$where =array('form_id'=>$value['form_id']);
+			$form_ob = $this->db->get_where('form',$where)->row_array();
+			if($form_ob){
+				$answered_list[$key]['form_name'] = $form_ob['form_name'];
+			
+			}else{
+				$answered_list[$key]['form_name'] ='该测试已删除!';
+
+			}
+		}
+
+		return $answered_list;
+
+	}
 
 
     /**

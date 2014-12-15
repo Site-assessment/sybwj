@@ -12,6 +12,7 @@ class pannel_form extends MY_Controller {
 		$this->load->helper('url');
 		//加载表单处理类
 		$this->load->model('form_model','form');
+		$this->load->model('answer_model','answer');
 
 
 	}
@@ -113,7 +114,26 @@ class pannel_form extends MY_Controller {
         $this->load->view('pages/indexfooter');
 	}
 
+    /**
+     *@abstract  学生情况列表页面
+     *@link http://www.flappyant.com/sybwj/admin/pannel_form/student_answered_list
+     */
 
+	public function student_answered_list(){
+
+         //获取该学生已答过的列表
+		$answered_list = $this->answer->get_answered_list_all();
+
+		$data = array(
+			// 'title'        => '已答过',
+			'answered_list'=> json_encode($answered_list),
+			'userinfo'     => json_encode($_SESSION['user']),
+			);
+
+		//加载页面
+	    $this->load->view('pages/indexheader');
+        $this->load->view('pages/studenthistory',$data);
+	}
     /**
      *@abstract 表单详情页面  
      *@link http://www.flappyant.com/sybwj/admin/pannel_form/form_info/(form_id)
