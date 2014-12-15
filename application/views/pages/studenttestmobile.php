@@ -1,5 +1,5 @@
 
-  <div id="welcome" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-controller="studentTestCtrl">
+  <div id="welcome"  ng-controller="studentTestCtrl">
   	<div class="row placeholders">
                   <div class="testname">
                       <p>{{testform.form.form_name}}</p>
