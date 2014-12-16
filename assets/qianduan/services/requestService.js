@@ -135,7 +135,7 @@ var editTest = function ($scope) {
             window.location.href=domain+'admin/pannel_form/form_list'; }
             else
             alert("修改失败");
-            console.log(successInfo);
+            // console.log(successInfo);
         }).error(function (errorInfo) {
             console.log('error');
             console.log(errorInfo);
