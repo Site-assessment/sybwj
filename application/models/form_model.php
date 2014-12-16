@@ -150,7 +150,8 @@ class form_model extends CI_Model{
 
         //封装条件
         $where = array(
-            'user_id'=>$user_id
+            'user_id'=>$user_id,
+            'status !='=>3,
             );
         if ($status != '') {
             
