@@ -21,7 +21,10 @@ class form_model extends CI_Model{
         if (isset($post['user_id']) && isset($post['username']) && isset($post['form']['form_name'])) {
 
         
-
+            if (isset($post['form_id'])) {
+              # code...
+              unset($post['form_id']);
+            }
             $form_name =  $post['form']['form_name'];
             $user_id = $post['user_id'];
             $username = $post['username'];

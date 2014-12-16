@@ -174,8 +174,8 @@ class pannel_form extends MY_Controller {
 		if ($post) {//(js)
 
 			//插入编辑过的表单,unset form_id;
-			$form_id = $this->form->insert($post);
-			if ($form_id) {
+			$form_id_new = $this->form->insert($post);
+			if ($form_id_new) {
 				# 删除原表单
 				$this->form_delete($form_id);
 				//操作成功，返回成功，跳转到测试列表（js跳转）
