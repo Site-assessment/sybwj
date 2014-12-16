@@ -38,7 +38,7 @@
         function is_auth_teacher(){
 
             //如果用户登陆过且是教师身份，返回true
-            if (isset($_SSESSION['user']) && $_SSESSION['user']['state'] == 1) {
+            if (isset($_SSESSION['user'])) {
                 # code...
                 return true;
             }else{
@@ -56,7 +56,7 @@
         function is_auth_student(){
 
             //如果用户登陆过且是学生身份，返回true
-            if (isset($_SSESSION['user']) && $_SSESSION['user']['state'] == 0) {
+            if (isset($_SSESSION['user'])) {
                 # code...
                 return true;
             }else{
