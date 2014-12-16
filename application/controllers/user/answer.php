@@ -28,7 +28,9 @@ class answer extends MY_Controller {
 	 //                $this->load->view('pages/indexfooter');
 		// }else{
 
-
+         if (isset($_SESSION['user']) && $_SESSION['user']['state'] == 0) {
+            	# code...
+            
 
 	         $data = array(
 	         	'userinfo'=>$_SESSION['user'],
@@ -40,7 +42,12 @@ class answer extends MY_Controller {
 	        $this->load->view('pages/indexheader',$data);
 			$this->load->view('pages/studentmenu');
 	        $this->load->view('pages/indexfooter');
-        // }
+        }else{
+        	 		$this->load->view('pages/indexheader');
+	                $this->load->view('pages/login');
+	                $this->load->view('pages/indexfooter');
+
+        }
 
 	}
 
