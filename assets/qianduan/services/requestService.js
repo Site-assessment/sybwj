@@ -194,6 +194,7 @@ var postStudentTest = function($scope){
 
                 // window.location.href=location.href;
             }).error(function (errorInfo) {
+                alert("提交失败!");
                 console.log('error');
                 console.log(errorInfo);
             });

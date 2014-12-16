@@ -331,17 +331,24 @@ class Welcome extends MY_Controller {
 	public function index()
 	{
 
-         $data = array(
-         	'userinfo'=>$_SESSION['user'],
-         	);
+         if ($this->is_auth_teacher()) {
+         	$this->boss_login();
+           	# code...
+           }else{
 
-         // echo json_encode($data);
 
-		// 加载首页
-		$this->load->view('pages/indexheader',$data);
-		$this->load->view('pages/teachermenu');
-        $this->load->view('pages/indexfooter');
-     }
+		         $data = array(
+		         	'userinfo'=>$_SESSION['user'],
+		         	);
+
+		         // echo json_encode($data);
+
+				// 加载首页
+				$this->load->view('pages/indexheader',$data);
+				$this->load->view('pages/teachermenu');
+		        $this->load->view('pages/indexfooter');
+		     }
+    }
 }
 
 /* End of file welcome.php */
