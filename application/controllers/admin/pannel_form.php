@@ -175,10 +175,11 @@ class pannel_form extends MY_Controller {
 
 			//插入编辑过的表单,unset form_id;
 			$form_id = $post['form_id'];
+			unset($post['form_id']);
 			$form_id_new = $this->form->insert($post);
 			if ($form_id_new) {
 				# 删除原表单
-				$this->form_delete($form_id);
+                $this->form->delete_form($form_id);
 				//操作成功，返回成功，跳转到测试列表（js跳转）
 					$data = array(
 
