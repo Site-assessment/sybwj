@@ -52,31 +52,31 @@ class Welcome extends MY_Controller {
 	 */
 	function boss_login(){
 		//提交表单（post）
-		if (isset($_SESSION['user']['user_id'])) {
+		// if (isset($_SESSION['user']['user_id'])) {
 
-			if ($_SESSION['user']['state'] == 0) {
-			//学生
-				         $data = array(
-					         	'userinfo'=>$_SESSION['user'],
-					         	);
+		// 	if ($_SESSION['user']['state'] == 0) {
+		// 	//学生
+		// 		         $data = array(
+		// 			         	'userinfo'=>$_SESSION['user'],
+		// 			         	);
 
-						// 加载首页
-				        $this->load->view('pages/indexheader',$data);
-						$this->load->view('pages/studentmenu');
-				        $this->load->view('pages/indexfooter');
-
-
-
-			}else{
-			//老师
-
-				$this->index();
-
-			}
+		// 				// 加载首页
+		// 		        $this->load->view('pages/indexheader',$data);
+		// 				$this->load->view('pages/studentmenu');
+		// 		        $this->load->view('pages/indexfooter');
 
 
-			# code...
-		}else{
+
+		// 	}else{
+		// 	//老师
+
+		// 		$this->index();
+
+		// 	}
+
+
+		// 	# code...
+		// }else{
 
 
 
@@ -131,9 +131,9 @@ class Welcome extends MY_Controller {
 	                $this->load->view('pages/login');
 	                $this->load->view('pages/indexfooter');
 			}
-	    }
-
 	}
+
+	
 
 	/**
 	 * @abstract 学生端登陆（移动端）

@@ -21,16 +21,26 @@ class answer extends MY_Controller {
      */
 	function index(){
 
-         $data = array(
-         	'userinfo'=>$_SESSION['user'],
-         	);
+		if (!$this->is_auth_student) {
+			# code...
+				    $this->load->view('pages/indexheader');
+	                $this->load->view('pages/login');
+	                $this->load->view('pages/indexfooter');
+		}else{
 
-         // echo json_encode($data);
 
-		// 加载首页
-        $this->load->view('pages/indexheader',$data);
-		$this->load->view('pages/studentmenu');
-        $this->load->view('pages/indexfooter');
+
+	         $data = array(
+	         	'userinfo'=>$_SESSION['user'],
+	         	);
+
+	         // echo json_encode($data);
+
+			// 加载首页
+	        $this->load->view('pages/indexheader',$data);
+			$this->load->view('pages/studentmenu');
+	        $this->load->view('pages/indexfooter');
+        }
 
 	}
 
