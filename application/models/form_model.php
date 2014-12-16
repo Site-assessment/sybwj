@@ -172,26 +172,31 @@ class form_model extends CI_Model{
 	 *  @abstract 删除问卷表单处理方法 
 	 */
 	function delete_form($form_id){
+
+       $where = array('form_id'=>$form_id);
+       $data = array('status'=>3);
+
+       $this->db->where($where)->update('form',$data);
 		
         //删除form表
-        $this->db->delete('form',array('form_id'=>$form_id));
+        // $this->db->delete('form',array('form_id'=>$form_id));
         
-        //取出该form表的所有问题
-        $ques_list = $this->db->get_where('ques',array('form_id'=>$form_id))->result_array();
+        // //取出该form表的所有问题
+        // $ques_list = $this->db->get_where('ques',array('form_id'=>$form_id))->result_array();
 
-        //删除opt表
-        foreach ($ques_list as $key => $ques_ob) {
-            # code...
+        // //删除opt表
+        // foreach ($ques_list as $key => $ques_ob) {
+        //     # code...
 
-            $ques_id = $ques_ob['ques_id'];
-            //删除这个问题的所有选项内容
-            $this->db->delete('opt',array('ques_id'=>$ques_id));
+        //     $ques_id = $ques_ob['ques_id'];
+        //     //删除这个问题的所有选项内容
+        //     $this->db->delete('opt',array('ques_id'=>$ques_id));
               
 
-        }
+        // }
 
-        //删除ques表
-         $this->db->delete('ques',array('form_id'=>$form_id));
+        // //删除ques表
+        //  $this->db->delete('ques',array('form_id'=>$form_id));
 
 
          return true;
