@@ -21,12 +21,12 @@ class answer extends MY_Controller {
      */
 	function index(){
 
-		if (!$this->is_auth_student()) {
-			# code...
-				    $this->load->view('pages/indexheader');
-	                $this->load->view('pages/login');
-	                $this->load->view('pages/indexfooter');
-		}else{
+		// if (!$this->is_auth_student()) {
+		// 	# code...
+		// 		    $this->load->view('pages/indexheader');
+	 //                $this->load->view('pages/login');
+	 //                $this->load->view('pages/indexfooter');
+		// }else{
 
 
 
@@ -40,7 +40,7 @@ class answer extends MY_Controller {
 	        $this->load->view('pages/indexheader',$data);
 			$this->load->view('pages/studentmenu');
 	        $this->load->view('pages/indexfooter');
-        }
+        // }
 
 	}
 

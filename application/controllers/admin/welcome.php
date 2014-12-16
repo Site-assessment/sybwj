@@ -332,10 +332,10 @@ class Welcome extends MY_Controller {
 	public function index()
 	{
 
-         if (!$this->is_auth_teacher()) {
-         	$this->boss_login();
-           	# code...
-           }else{
+         // if (!$this->is_auth_teacher()) {
+         // 	$this->boss_login();
+         //   	# code...
+         //   }else{
 
 
 		         $data = array(
@@ -348,7 +348,7 @@ class Welcome extends MY_Controller {
 				$this->load->view('pages/indexheader',$data);
 				$this->load->view('pages/teachermenu');
 		        $this->load->view('pages/indexfooter');
-		     }
+		     // }
     }
 }
 
