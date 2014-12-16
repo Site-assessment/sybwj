@@ -11,7 +11,7 @@
     </div>
 </div>
 </div>
-<form role="form"  >
+<form role="form" ng-submit="editTest()" >
   <div >
       <div class="form-group" >
         <label >问题：</label>
