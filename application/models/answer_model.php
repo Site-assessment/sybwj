@@ -110,7 +110,7 @@ class answer_model extends CI_Model{
 
         $where = array('user_id'=>$user_id);
         //获取答过测试列表
-		$answered_list = $this->db->get_where('answer',$where)->result_array();
+		$answered_list = $this->db->order_by('cTime','desc')->get_where('answer',$where)->result_array();
 
 		foreach ($answered_list as $key => $value) {
 

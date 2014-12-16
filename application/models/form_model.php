@@ -162,7 +162,7 @@ class form_model extends CI_Model{
         }
 
         //查询测试列表
-        $form_list = $this->db->get_where('form',$where)->result_array();
+        $form_list = $this->db->order_by('form_id','desc')->get_where('form',$where)->result_array();
         //返回结果
         return $form_list;
 
