@@ -336,8 +336,9 @@ class Welcome extends MY_Controller {
          // 	$this->boss_login();
          //   	# code...
          //   }else{
-
-
+             if (isset($_SESSION['user']) && $_SESSION['user']['state'] == 1) {
+                	# code...
+                
 		         $data = array(
 		         	'userinfo'=>$_SESSION['user'],
 		         	);
@@ -348,7 +349,9 @@ class Welcome extends MY_Controller {
 				$this->load->view('pages/indexheader',$data);
 				$this->load->view('pages/teachermenu');
 		        $this->load->view('pages/indexfooter');
-		     // }
+		     }else{
+		     	$this->boss_login();
+		     }
     }
 }
 
