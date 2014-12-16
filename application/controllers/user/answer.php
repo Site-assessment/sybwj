@@ -21,7 +21,7 @@ class answer extends MY_Controller {
      */
 	function index(){
 
-		if (!$this->is_auth_student) {
+		if (!$this->is_auth_student()) {
 			# code...
 				    $this->load->view('pages/indexheader');
 	                $this->load->view('pages/login');
