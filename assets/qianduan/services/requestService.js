@@ -125,6 +125,7 @@ var newtest = function ($scope) {
     //修改测试
 var editTest = function ($scope) {
         var testform=$scope.testforms;
+        console.log(testform);
         $http({
             method:'post',
             url:domain+'admin/pannel_form/form_edit/',
