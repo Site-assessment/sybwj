@@ -122,7 +122,7 @@ class answer_model extends CI_Model{
 			
 			}else{
 				$answered_list[$key]['form_name'] ='该测试已删除!';
-				$answered_list[$key]['form_realname'] = $form_ob['username'];
+				$answered_list[$key]['form_realname'] ='';
 
 
 			}
