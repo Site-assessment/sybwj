@@ -222,6 +222,7 @@ var postStudentTest = function($scope){
         form_id:form_id,
         paginationInit:paginationInit,
         newtest:newtest,
+        editTest:editTest,
         login:login,
         validate:validate,
         paginationInit:paginationInit,
