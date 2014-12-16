@@ -331,7 +331,7 @@ class Welcome extends MY_Controller {
 	public function index()
 	{
 
-         if ($this->is_auth_teacher()) {
+         if (!$this->is_auth_teacher()) {
          	$this->boss_login();
            	# code...
            }else{
