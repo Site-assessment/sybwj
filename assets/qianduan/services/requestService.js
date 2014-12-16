@@ -131,6 +131,7 @@ var editTest = function ($scope) {
             url:domain+'admin/pannel_form/form_edit/',
             data:testform
         }).success(function (successInfo) {
+            console.log(successInfo);
              if(successInfo.errorcode==0)
            {alert("修改成功");
             window.location.href=domain+'admin/pannel_form/form_list'; }

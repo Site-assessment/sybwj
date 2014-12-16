@@ -2,7 +2,7 @@
 <div ng-controller="teacherEditTest">
     <div   class="jumbotron">
         <div class="container">
-          <h1>{{testform1.form.form_name}}</h1>
+          <h1>{{testforms.form.form_name}}</h1>
           <div ng-repeat="que in testforms.form.ques track by $index">
             <p>题目:<span>{{que.ques_name}}</span><button type="button" class="btn btn-sm" ng-click="edit($index)">修改题目</button></p>
             <label>选项：</label> <ol type="A" >
