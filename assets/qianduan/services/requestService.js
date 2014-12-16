@@ -127,7 +127,7 @@ var editTest = function ($scope) {
         var testform=$scope.testforms;
         $http({
             method:'post',
-            url:domain+'admin/pannel_form/form_edit/'+$scope.testforms.form_id,
+            url:domain+'admin/pannel_form/form_edit/',
             data:testform
         }).success(function (successInfo) {
              if(successInfo.errorcode==0)
