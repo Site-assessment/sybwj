@@ -181,6 +181,26 @@ var postStudentTest = function($scope){
             console.log(errorInfo);
         });
 }
+
+    //发送学生完成的测试
+    var postStudentTestMobile = function($scope){
+        var grades=$scope.grades;
+        $http({
+                method:'POST',
+                url:domain+'user/answer/answer_in/'+$scope.testform.form_id,
+                data:grades
+            }).success(function (successInfo) {
+                 // if(successInfo.errorcode==0)
+                // window.location.href=domain+'user/answer/answered_list'; 
+
+                // window.location.href=location.href;
+            }).error(function (errorInfo) {
+                alert("提交失败!");
+                console.log('error');
+                console.log(errorInfo);
+            });
+    }
+
 //登出
     var logout = function ($scope) {
         $rootScope.administrator = null;
@@ -209,6 +229,7 @@ var postStudentTest = function($scope){
         validate:validate,
         paginationInit:paginationInit,
         postStudentTest:postStudentTest,
+        postStudentTestMobile:postStudentTestMobile,
         testforms:testforms,
         deleteTest:deleteTest
     }   
