@@ -1,6 +1,6 @@
 <div   ng-controller="teacherEditTest">
  <div class="container"  >
-  <form role="form" ng-submit="newtest()" >
+  <form role="form" ng-submit="editTest()" >
    <div class="input-group">
     <h2 >试卷名字:<span id="testname1" >{{testforms.form.form_name}}</span>
       <input id="testname2" class="form-control"  style="display:none" type="text" ng-model="testforms.form.form_name" placeholder="Enter  name"></h2>
@@ -28,7 +28,7 @@
     <div class="col-xs-6">
     </div>
     <div class="col-xs-6">
-      <div class="submit"><button  type="submit" class="btn btn-primary submit" ng-submit="newtest()" ><i class="glyphicon glyphicon-ok"></i>提交</button></div>
+      <div class="submit"><button  type="submit" class="btn btn-primary submit" ng-submit="editTest()" ><i class="glyphicon glyphicon-ok"></i>提交</button></div>
     </div>
   </div>
       
