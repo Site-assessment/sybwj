@@ -1,12 +1,14 @@
 
-<div  ng-controller="teacherTestPage">
-	<div   class="jumbotron">
-		<div class="container">
-			<h1>{{testform1.form.form_name}}</h1>
-			<div ng-repeat="que in testform1.form.ques">
-				<label>问题{{$index+1}}：</label>:<span>{{que.ques_name}}</span></p> 
+<div id="welcome" ng-controller="teacherTestPage">
+<div class="row placeholders">
+			<h1 class="1">{{testform1.form.form_name}}</h1>
+		</div>
+			<div ng-repeat="que in testform1.form.ques" >
+				<div ng-model="id" ng-init='id = $index'></div>
+					<h1 class="page-header"></h1>
+				<label>问题{{$index+1}}：:<span>{{que.ques_name}}</span></label>
 				<ol type="A" >
-					<li  ng-repeat="c in que.opt  track by $index"><span>{{c.content}}</span><span  ng-hide="c.is_answer==0">(is answer)</span></li>
+					<li  ng-repeat="c in que.opt  track by $index"><span class="green{{c.is_answer}}">{{c.content}}</span></li>
 				</ol>
 			</div>
 		</div>
