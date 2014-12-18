@@ -11,7 +11,7 @@ AdministratorPlatform.factory('requestService', ['$http', '$rootScope', '$locati
     var testforms={
       user_id:'',
       username:'',
-      form:{
+      form:{  
         form_name:'',
         ques :[{
             ques_name: '',
@@ -124,20 +124,19 @@ var newtest = function ($scope) {
     }
     //修改测试
 var editTest = function ($scope) {
-        var testform=$scope.testforms;
-        console.log(testform);
+        var testform1=$scope.testforms;
+        console.log(testform1);
         $http({
             method:'post',
-            url:domain+'admin/pannel_form/form_edit/',
-            data:testform
+            url:domain+'admin/pannel_form/form_edit',
+            data:testform1
         }).success(function (successInfo) {
-            console.log(successInfo);
              if(successInfo.errorcode==0)
            {alert("修改成功");
             window.location.href=domain+'admin/pannel_form/form_list'; }
             else
             alert("修改失败");
-            // console.log(successInfo);
+            console.log(successInfo);
         }).error(function (errorInfo) {
             console.log('error');
             console.log(errorInfo);
@@ -182,26 +181,7 @@ var postStudentTest = function($scope){
             console.log(errorInfo);
         });
 }
-
-    //发送学生完成的测试
-    var postStudentTestMobile = function($scope){
-        var grades=$scope.grades;
-        $http({
-                method:'POST',
-                url:domain+'user/answer/answer_in/'+$scope.testform.form_id,
-                data:grades
-            }).success(function (successInfo) {
-                 // if(successInfo.errorcode==0)
-                // window.location.href=domain+'user/answer/answered_list'; 
-
-                // window.location.href=location.href;
-            }).error(function (errorInfo) {
-                alert("提交失败!");
-                console.log('error');
-                console.log(errorInfo);
-            });
-    }
-    //登出
+//登出
     var logout = function ($scope) {
         $rootScope.administrator = null;
         $location.path('/')
@@ -221,16 +201,15 @@ var postStudentTest = function($scope){
     }
 
     return {
+        editTest:editTest,
         form_id:form_id,
         paginationInit:paginationInit,
         newtest:newtest,
-        editTest:editTest,
         login:login,
         validate:validate,
         paginationInit:paginationInit,
         postStudentTest:postStudentTest,
         testforms:testforms,
-        deleteTest:deleteTest,
-        postStudentTestMobile:postStudentTestMobile
+        deleteTest:deleteTest
     }   
 }])

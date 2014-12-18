@@ -1,7 +1,43 @@
+    <link href="<?=DIR_AdminLTE?>css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+    <!-- DATA TABES SCRIPT -->
+    <script src="<?=DIR_AdminLTE?>js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="<?=DIR_AdminLTE?>js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <style type="text/css">
+/*        .box{
+            border-top: 2px solid #00c0ef;
+        }*/
+
+        .fa{
+            padding-left: 10px;
+        }
+
+        .error{
+            color:red;
+        }
+
+        .ope .btn-sm{
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        .display_info{
+            height: 42px;
+            line-height: 42px;
+            float: right;
+            padding-right: 15px;
+        }
+
+        .display_info a{
+            color: #FF6600 !important;
+        }
+    </style>
+
 <div class="panel-body" ng-controller="teacherListCtrl">
-            <!-- 问卷列表 -->
-          <table class="table table-striped">
-                    <tr class="success">
+    <div class="box">
+        <div class="box-body table-responsive">
+            <table id="example" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
                       <td>问卷ID</td>
                       <td>标题</td>
                       <td>出题人</td>
@@ -9,9 +45,11 @@
                     <td>状态</td>
                      <td>操作</td>
                     </tr> 
+                </thead>
+                <tbody>
                     <tr   ng-repeat="form in formlist">
                       <td>{{form.form_id}}</td>
-                      <td><a href="<?=site_url().'index.php/admin/pannel_form/form_info/'?>{{form.form_id}}" >{{form.form_name}}</td>
+                      <td><a href="<?=site_url().'index.php/admin/pannel_form/form_info/'?>{{form.form_id}}" >{{form.form_name}}</a></td>
                       <td>{{form.username}}</td>
                       <td>{{form.cTime}}</td>
                       <td id="status_{{form.form_id}}">
@@ -24,8 +62,8 @@
                       <td><button type="button" class="btn btn-sm btn-link"   ng-click="page($index)">详情 </button>
                         <button type="button" class="btn btn-sm btn-link"   ng-click="edit($index)">编辑 </button>
                         <button type="button" class="btn btn-sm btn-link"   ng-click="delete($index)">删除</button>
-                        <a href="<?=base_url()?>admin/pannel_form/form_display/{{form.form_id}}/start" class="btn btn-sm text-info">启用</a>
-                        <a href="<?=base_url()?>admin/pannel_form/form_display/{{form.form_id}}/stop" class="btn btn-sm text-info">停止</a>                       
+                        <a href="<?=base_url()?>index.php/admin/pannel_form/form_display/{{form.form_id}}/start" class="btn btn-sm text-info">启用</a>
+                        <a href="<?=base_url()?>index.php/admin/pannel_form/form_display/{{form.form_id}}/stop" class="btn btn-sm text-info">停止</a>                       
                        <!--  <button data-href="<?=base_url()?>admin/pannel_form/form_display/{{form.form_id}}/start" class="btn btn-sm btn-link btn-pass" data-id="{{form.form_id}}"> 启用</button>
 
                          <button data-href="<?=base_url()?>admin/pannel_form/form_display/{{form.form_id}}/stop" class="btn btn-sm btn-link reject" data-id="{{form.form_id}}"> 停止</button> -->
@@ -35,7 +73,10 @@
 <!--                       <button type="button" class="btn btn-primary"   ng-click="use($index)" value="启用"><div id="use">启用</div> </button>
                       </td> -->
                     </tr>
-                </table>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 <script type="text/javascript">
 
@@ -103,4 +144,27 @@ $scope.delete=function($index){
   requestService.deleteTest($scope);
 }
 }])
+</script>
+</script>
+    <script type="text/javascript">
+        $(function() {
+            $('#example').dataTable({
+                "oLanguage": {
+                    "sProcessing": "正在加载中...",
+                    "sLengthMenu": "每页显示 _MENU_ 条记录",
+                    "sZeroRecords": "对不起，查询不到相关数据！",
+                    "sEmptyTable": "表中无数据存在！",
+                    "sInfo": "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
+                    "sInfoFiltered": "数据表中共有 _MAX_ 条记录",
+                    "sSearch": "搜索",
+                    "oPaginate": {
+                        "sFirst": "首页",
+                        "sPrevious": "上一页",
+                        "sNext": "下一页",
+                        "sLast": "末页"
+                    },
+                    "sInfoEmpty": "条目为空",
+                }
+            });
+        });
 </script>

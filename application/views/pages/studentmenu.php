@@ -45,7 +45,7 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">设置 <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="<?=base_url()?>admin/welcome/logout">注销</a></li>
+                  <li><a href="<?=base_url()?>index.php/admin/welcome/logout">注销</a></li>
                   <li><a href="#">修改资料</a></li>
                   <!-- <li><a href="#">Something else here</a></li> -->
                   <li class="divider"></li>

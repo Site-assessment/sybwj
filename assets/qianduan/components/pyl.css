@@ -3,14 +3,23 @@
  */
 
 /* Move down content because we have a fixed navbar that is 50px tall */
-body {
-  padding-top: 0px;
+/*body {
+  padding-top: 50px;
 }
-
-
+*/
+.green1{
+  color:green;
+}
+.red{
+  color:red;
+}
 /*
  * Global add-ons
  */
+#ts{
+  background-color: transparent; 
+  border: 0;
+}
 
 .sub-header {
   padding-bottom: 10px;
@@ -72,12 +81,12 @@ body {
  */
 
 .main {
-  padding: 2px;
+  padding: 20px;
 }
-@media (min-width: 200px) {
+@media (min-width: 768px) {
   .main {
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 40px;
+    padding-left: 40px;
   }
 }
 .main .page-header {
@@ -104,8 +113,8 @@ body {
   border-radius: 50%;
 }
 
-.page-header-my{
-border-bottom: 1px solid #eee;
+.page-header{
+  text-align: center;
 }
 
 #sub_btn{
@@ -156,18 +165,13 @@ border-bottom: 1px solid #eee;
 
 /*another type to express*/
 
-.title-color{
-  background-color: #E6E8EA;
-}
-
 #welcome p{
   font-family: LiSu;
-  font-size: 20px;
+  font-size: 25px;
 }
 #welcome .testname{
   padding: 15px;
   margin-bottom: 20px;
-  margin-left: 10px;
   border: 1px solid transparent;
   border-radius: 4px;
   color: #31708f;
@@ -180,10 +184,6 @@ border-bottom: 1px solid #eee;
   font-size: 20px;
 } 
 #welcome .submit{
- margin: 0 5% 0 5%;
-}
-
-.big{
-  width: 100%;
+ margin: 0 0 0 85%;
 }
 

@@ -12,6 +12,7 @@
             define('DIR_FONTS', site_url().'assets/fonts/');
             define('DIR_CSS', site_url().'assets/css/');
             define('DIR_JS', site_url().'assets/js/');
+            define('DIR_AdminLTE', site_url().'assets/AdminLTE/');
 
             //控制层路由参数定义
             define('DIR_ADMIN',site_url().'admin/');
